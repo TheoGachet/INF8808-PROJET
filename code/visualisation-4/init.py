@@ -12,7 +12,7 @@ def get_figure():
         xref="paper", yref="paper",
         x=0.5, y=0.5, showarrow=False,
         font=dict(size=16)
-    ) 
+    )
     fig.update_layout(
         xaxis=dict(visible=False),
         yaxis=dict(visible=False),
