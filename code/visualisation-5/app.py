@@ -1,26 +1,26 @@
-# j'ai utilisé le TP3 comme base pour ajouter une visualisation dessusc
+# j'ai utilisé le TP3 comme base pour ajouter une visualisation dessus
 
 import dash
 from dash import html, dcc
 import plotly.graph_objects as go
 
-# Import de la visualisation 1 (vide pour l’instant)
-from init import get_figure as viz1_get_figure
+# Import de la visualisation 5 (vide pour l’instant)
+from init import get_figure
 
 app = dash.Dash(__name__)
 app.title = "Projet INF8808"
 
-empty_fig = viz1_get_figure()
+fig = get_figure()
 
 app.layout = html.Div([
     html.Header([
         html.H1("Projet INF8808"),
-        html.H2("Visualisation 4")
+        html.H2("Visualisation 5")
     ]),
     html.Main([
         dcc.Graph(
             id='viz1-graph',
-            figure=empty_fig,
+            figure=fig,
             config=dict(
                 scrollZoom=False,
                 showTips=False,
