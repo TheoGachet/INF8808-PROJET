@@ -1,4 +1,4 @@
-# j'ai utilisé le TP3 comme base pour ajouter une visualisation dessusc
+# j'ai utilisé le TP3 comme base pour ajouter une visualisation dessus
 
 import preprocess as preprocess
 
