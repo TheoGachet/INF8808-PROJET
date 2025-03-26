@@ -4,23 +4,27 @@ import dash
 from dash import html, dcc
 import plotly.graph_objects as go
 
-# Import de la visualisation 1 (vide pour l’instant)
-from init import get_figure as viz1_get_figure
+import preprocess
+import lolipop
 
 app = dash.Dash(__name__)
-app.title = "Projet INF8808"
+app.title = 'TP3 | INF8808'
 
-empty_fig = viz1_get_figure()
+df = preprocess.load_csv("all_athlete_games.csv")
+df = preprocess.preprocess_data(df)
+fig = lolipop.create_lollipop_figure(df)
+
+
 
 app.layout = html.Div([
     html.Header([
-        html.H1("Projet INF8808"),
-        html.H2("Visualisation 4")
+        html.H1("Visualisation des performances aux JO"),
+        html.H2("Visualisation 3")
     ]),
     html.Main([
         dcc.Graph(
-            id='viz1-graph',
-            figure=empty_fig,
+            id='lollipop-graph',
+            figure=fig,
             config=dict(
                 scrollZoom=False,
                 showTips=False,
@@ -33,4 +37,4 @@ app.layout = html.Div([
 ])
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run(debug=True)

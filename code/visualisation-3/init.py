@@ -4,11 +4,11 @@ import plotly.graph_objects as go
 
 def get_figure():
     """
-    Placeholder pour la Visualisation 4.
+    Placeholder pour la Visualisation 3.
     """
     fig = go.Figure()
     fig.add_annotation(
-        text="Visualisation 4 non implémentée",
+        text="Visualisation 3 non implémentée",
         xref="paper", yref="paper",
         x=0.5, y=0.5, showarrow=False,
         font=dict(size=16)
