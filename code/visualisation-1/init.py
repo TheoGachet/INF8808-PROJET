@@ -8,7 +8,7 @@ def get_figure():
     """
     fig = go.Figure()
     fig.add_annotation(
-        text="Visualisation 4 non implémentée",
+        text="Visualisation 1 non implémentée",
         xref="paper", yref="paper",
         x=0.5, y=0.5, showarrow=False,
         font=dict(size=16)
