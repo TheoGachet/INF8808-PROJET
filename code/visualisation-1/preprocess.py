@@ -15,8 +15,8 @@ def load_csv(filename):
 data = load_csv("all_athlete_games.csv")
 
 summer_sports = [
-    "Artistic Gymnastics","Athletics", "Badminton", "Basketball", "Boxing",
-    "Canoeing", "Cycling", "Equestrian", "Fencing", "Foot", 
+    "Artistic Gymnastics", "Athletics", "Badminton", "Basketball", "Boxing",
+    "Canoeing", "Cycling", "Equestrian", "Fencing", "Football", 
     "Handball", "Judo", "Rowing", "Sailing", "Swimming", "Wrestling"
 ]
 
