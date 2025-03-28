@@ -44,8 +44,7 @@ def create_multiple_heatmaps(data):
                 y = 0.93 - (row - 1) * (1.15 / rows),  # Aligne la légende avec chaque subplot
                 len = 0.2  # Ajuste la hauteur de la barre de couleurs
             ),
-            customdata=[[sport] * len(df.columns) for _ in range(len(df.index))],  # Données supplémentaires pour le survol
-            hovertemplate = hover.get_hover_template()  # Modèle de survol
+            hovertemplate=hover.get_hover_template(sport)  # Ajout des informations manquantes
         )
 
         # Ajout du heatmap au subplot correspondant
@@ -58,6 +57,7 @@ def create_multiple_heatmaps(data):
                 if host_country in df.index:
                     y_index = df.index.get_loc(host_country)
 
+                    # Définir la taille du rectangle
                     size_x = 1.8
                     size_y = 0.5
                     
@@ -74,9 +74,9 @@ def create_multiple_heatmaps(data):
 
     # Mise à jour de la mise en page globale
     fig.update_layout(
-        height = rows * 450,  # Ajustement de la hauteur en fonction du nombre de lignes
-        width = cols * 450,  # Augmentation de la largeur pour bien afficher les légendes
-        showlegend = False  # Désactiver la légende globale
+        height = rows * 370,  # Ajustement de la hauteur en fonction du nombre de lignes
+        width = cols * 370,  # Augmentation de la largeur pour bien afficher les légendes
+        showlegend = False  # Activer la légende globale
     )
 
     return fig
