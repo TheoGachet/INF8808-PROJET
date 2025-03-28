@@ -84,11 +84,12 @@ def convert_data():
     """
 
     sports = summer_sports  # Liste des sports d'été à analyser
+    season = 'Summer'  # Saison des sports à analyser
 
     medal_counts = {}  # Dictionnaire pour stocker les médailles par sport
 
     # Filtrer les données pour les années entre 1991 et 2020
-    filtered_data = data[(data['Year'] >= 1991) & (data['Year'] <= 2020)]
+    filtered_data = data[(data['Year'] >= 1992) & (data['Year'] <= 2020)]
 
     for sport in sports:
         # Filtrer les données pour un sport spécifique
@@ -112,26 +113,18 @@ def convert_data():
             # Ajouter une ligne 'Others' pour les autres pays
             top_countries_data.loc['Others'] = others_data
 
-            # Ajouter une colonne indiquant si un pays a organisé un JO
-            organized = []
-            for country in top_countries_data.index:
-                organized_row = []
-                for year in top_countries_data.columns:
-                    if country in organaizing_countries.values():
-                        if any(
-                            organaizing_countries.get(city) == country
-                            for city in filtered_data[filtered_data['Year'] == year]['City'].unique()
-                        ):
-                            organized_row.append(country)
-                        else:
-                            organized_row.append(None)
-                    else:
-                        organized_row.append(None)
-                organized.append(organized_row)
-            
-            top_countries_data['Organized'] = organized
-
             # Ajouter les données au dictionnaire pour le sport actuel
             medal_counts[sport] = top_countries_data
 
+    
+    # Ajouter une colonne pour le code du pays organisateur
+    filtered_data['Host_Country'] = filtered_data['City'].map(organaizing_countries)
+
+    # Créer un dictionnaire avec les années comme clés et les codes des pays organisateurs comme valeurs
+    host_countries_by_year = filtered_data[filtered_data['Season'] == season][['Year', 'Host_Country']].drop_duplicates().sort_values('Year')
+    host_countries_dict = dict(zip(host_countries_by_year['Year'], host_countries_by_year['Host_Country']))
+
+    # Ajouter les données des pays organisateurs dans medal_counts
+    medal_counts['Host_Countries'] = host_countries_dict
+    
     return medal_counts

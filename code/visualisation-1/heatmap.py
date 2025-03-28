@@ -2,6 +2,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
+import hover_template as hover
 
 
 def create_multiple_heatmaps(data):
@@ -23,6 +24,8 @@ def create_multiple_heatmaps(data):
 
     # Parcours de chaque sport pour créer les heatmaps
     for i, sport in enumerate(sports):
+        if sport == "Host_Countries":
+            continue
         df = pd.DataFrame(data[sport])  # Convertir en DataFrame
 
         # Position du subplot (ligne et colonne)
@@ -40,11 +43,34 @@ def create_multiple_heatmaps(data):
                 x = 0.15 + (col - 1) * 0.29,  # Décale la légende à droite de chaque heatmap
                 y = 0.93 - (row - 1) * (1.15 / rows),  # Aligne la légende avec chaque subplot
                 len = 0.2  # Ajuste la hauteur de la barre de couleurs
-            )
+            ),
+            customdata=[[sport] * len(df.columns) for _ in range(len(df.index))],  # Données supplémentaires pour le survol
+            hovertemplate = hover.get_hover_template()  # Modèle de survol
         )
 
         # Ajout du heatmap au subplot correspondant
         fig.add_trace(heatmap, row=row, col=col)
+
+        # Ajouter des annotations pour les pays hôtes
+        for year in df.columns:
+            if year in data["Host_Countries"]:
+                host_country = data["Host_Countries"][year]
+                if host_country in df.index:
+                    y_index = df.index.get_loc(host_country)
+
+                    size_x = 1.8
+                    size_y = 0.5
+                    
+                    fig.add_shape(
+                        type="rect",
+                        x0=int(year) - size_x,  # Début de l'année avec une marge
+                        x1=int(year) + size_x,  # Fin de l'année avec une marge
+                        y0=y_index - size_y,  # Début du pays avec une marge
+                        y1=y_index + size_y,  # Fin du pays avec une marge
+                        xref=f"x{i+1}",
+                        yref=f"y{i+1}",
+                        line=dict(color="red", width=2),
+                    )
 
     # Mise à jour de la mise en page globale
     fig.update_layout(
