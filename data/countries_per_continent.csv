@@ -1,0 +1,235 @@
+flagCode,country,continent,unMember
+AF,Afghanistan,Asia,TRUE
+AL,Albania,Europe,TRUE
+DZ,Algeria,Africa,TRUE
+AS,American Samoa,Oceania,FALSE
+AD,Andorra,Europe,TRUE
+AO,Angola,Africa,TRUE
+AI,Anguilla,North America,FALSE
+AG,Antigua and Barbuda,North America,TRUE
+AR,Argentina,South America,TRUE
+AM,Armenia,Asia,TRUE
+AW,Aruba,North America,FALSE
+AU,Australia,Oceania,TRUE
+AT,Austria,Europe,TRUE
+AZ,Azerbaijan,Asia,TRUE
+BS,Bahamas,North America,TRUE
+BH,Bahrain,Asia,TRUE
+BD,Bangladesh,Asia,TRUE
+BB,Barbados,North America,TRUE
+BY,Belarus,Europe,TRUE
+BE,Belgium,Europe,TRUE
+BZ,Belize,North America,TRUE
+BJ,Benin,Africa,TRUE
+BM,Bermuda,North America,FALSE
+BT,Bhutan,Asia,TRUE
+BO,Bolivia,South America,TRUE
+BA,Bosnia and Herzegovina,Europe,TRUE
+BW,Botswana,Africa,TRUE
+BR,Brazil,South America,TRUE
+VG,British Virgin Islands,North America,FALSE
+BN,Brunei,Asia,TRUE
+BG,Bulgaria,Europe,TRUE
+BF,Burkina Faso,Africa,TRUE
+BI,Burundi,Africa,TRUE
+KH,Cambodia,Asia,TRUE
+CM,Cameroon,Africa,TRUE
+CA,Canada,North America,TRUE
+CV,Cape Verde,Africa,TRUE
+KY,Cayman Islands,North America,FALSE
+CF,Central African Republic,Africa,TRUE
+TD,Chad,Africa,TRUE
+CL,Chile,South America,TRUE
+CN,China,Asia,TRUE
+CO,Colombia,South America,TRUE
+KM,Comoros,Africa,TRUE
+CK,Cook Islands,Oceania,FALSE
+CR,Costa Rica,North America,TRUE
+HR,Croatia,Europe,TRUE
+CU,Cuba,North America,TRUE
+CW,Curacao,North America,FALSE
+CY,Cyprus,Europe,TRUE
+CZ,Czech Republic,Europe,TRUE
+DK,Denmark,Europe,TRUE
+DJ,Djibouti,Africa,TRUE
+DM,Dominica,North America,TRUE
+DO,Dominican Republic,North America,TRUE
+CD,DR Congo,Africa,TRUE
+EC,Ecuador,South America,TRUE
+EG,Egypt,Africa,TRUE
+SV,El Salvador,North America,TRUE
+GQ,Equatorial Guinea,Africa,TRUE
+ER,Eritrea,Africa,TRUE
+EE,Estonia,Europe,TRUE
+SZ,Eswatini,Africa,TRUE
+ET,Ethiopia,Africa,TRUE
+FK,Falkland Islands,South America,FALSE
+FO,Faroe Islands,Europe,FALSE
+FJ,Fiji,Oceania,TRUE
+FI,Finland,Europe,TRUE
+FR,France,Europe,TRUE
+GF,French Guiana,South America,FALSE
+PF,French Polynesia,Oceania,FALSE
+GA,Gabon,Africa,TRUE
+GM,Gambia,Africa,TRUE
+GE,Georgia,Asia,TRUE
+DE,Germany,Europe,TRUE
+GH,Ghana,Africa,TRUE
+GI,Gibraltar,Europe,FALSE
+GR,Greece,Europe,TRUE
+GL,Greenland,North America,FALSE
+GD,Grenada,North America,TRUE
+GP,Guadeloupe,North America,FALSE
+GU,Guam,Oceania,FALSE
+GT,Guatemala,North America,TRUE
+GG,Guernsey,Europe,FALSE
+GN,Guinea,Africa,TRUE
+GW,Guinea-Bissau,Africa,TRUE
+GY,Guyana,South America,TRUE
+HT,Haiti,North America,TRUE
+HN,Honduras,North America,TRUE
+HK,Hong Kong,Asia,FALSE
+HU,Hungary,Europe,TRUE
+IS,Iceland,Europe,TRUE
+IN,India,Asia,TRUE
+ID,Indonesia,Asia,TRUE
+IR,Iran,Asia,TRUE
+IQ,Iraq,Asia,TRUE
+IE,Ireland,Europe,TRUE
+IM,Isle of Man,Europe,FALSE
+IL,Israel,Asia,TRUE
+IT,Italy,Europe,TRUE
+CI,Ivory Coast,Africa,TRUE
+JM,Jamaica,North America,TRUE
+JP,Japan,Asia,TRUE
+JE,Jersey,Europe,FALSE
+JO,Jordan,Asia,TRUE
+KZ,Kazakhstan,Asia,TRUE
+KE,Kenya,Africa,TRUE
+KI,Kiribati,Oceania,TRUE
+KW,Kuwait,Asia,TRUE
+KG,Kyrgyzstan,Asia,TRUE
+LA,Laos,Asia,TRUE
+LV,Latvia,Europe,TRUE
+LB,Lebanon,Asia,TRUE
+LS,Lesotho,Africa,TRUE
+LR,Liberia,Africa,TRUE
+LY,Libya,Africa,TRUE
+LI,Liechtenstein,Europe,TRUE
+LT,Lithuania,Europe,TRUE
+LU,Luxembourg,Europe,TRUE
+MO,Macau,Asia,FALSE
+MG,Madagascar,Africa,TRUE
+MW,Malawi,Africa,TRUE
+MY,Malaysia,Asia,TRUE
+MV,Maldives,Asia,TRUE
+ML,Mali,Africa,TRUE
+MT,Malta,Europe,TRUE
+MH,Marshall Islands,Oceania,TRUE
+MQ,Martinique,North America,FALSE
+MR,Mauritania,Africa,TRUE
+MU,Mauritius,Africa,TRUE
+YT,Mayotte,Africa,FALSE
+MX,Mexico,North America,TRUE
+FM,Micronesia,Oceania,TRUE
+MD,Moldova,Europe,TRUE
+MC,Monaco,Europe,TRUE
+MN,Mongolia,Asia,TRUE
+ME,Montenegro,Europe,TRUE
+MS,Montserrat,North America,FALSE
+MA,Morocco,Africa,TRUE
+MZ,Mozambique,Africa,TRUE
+MM,Myanmar,Asia,TRUE
+NA,Namibia,Africa,TRUE
+NR,Nauru,Oceania,TRUE
+NP,Nepal,Asia,TRUE
+NL,Netherlands,Europe,TRUE
+NC,New Caledonia,Oceania,FALSE
+NZ,New Zealand,Oceania,TRUE
+NI,Nicaragua,North America,TRUE
+NE,Niger,Africa,TRUE
+NG,Nigeria,Africa,TRUE
+NU,Niue,Oceania,FALSE
+KP,North Korea,Asia,TRUE
+MK,North Macedonia,Europe,TRUE
+MP,Northern Mariana Islands,Oceania,FALSE
+NO,Norway,Europe,TRUE
+OM,Oman,Asia,TRUE
+PK,Pakistan,Asia,TRUE
+PW,Palau,Oceania,TRUE
+PS,Palestine,Asia,TRUE
+PA,Panama,North America,TRUE
+PG,Papua New Guinea,Oceania,TRUE
+PY,Paraguay,South America,TRUE
+PE,Peru,South America,TRUE
+PH,Philippines,Asia,TRUE
+PL,Poland,Europe,TRUE
+PT,Portugal,Europe,TRUE
+PR,Puerto Rico,North America,FALSE
+QA,Qatar,Asia,TRUE
+CG,Republic of the Congo,Africa,TRUE
+RE,Reunion,Africa,FALSE
+RO,Romania,Europe,TRUE
+RU,Russia,"Asia, Europe",TRUE
+RW,Rwanda,Africa,TRUE
+BL,Saint Barthelemy,North America,FALSE
+KN,Saint Kitts and Nevis,North America,TRUE
+LC,Saint Lucia,North America,TRUE
+MF,Saint Martin,North America,FALSE
+PM,Saint Pierre and Miquelon,North America,FALSE
+VC,Saint Vincent and the Grenadines,North America,TRUE
+WS,Samoa,Oceania,TRUE
+SM,San Marino,Europe,TRUE
+ST,Sao Tome and Principe,Africa,TRUE
+SA,Saudi Arabia,Asia,TRUE
+SN,Senegal,Africa,TRUE
+RS,Serbia,Europe,TRUE
+SC,Seychelles,Africa,TRUE
+SL,Sierra Leone,Africa,TRUE
+SG,Singapore,Asia,TRUE
+SX,Sint Maarten,North America,FALSE
+SK,Slovakia,Europe,TRUE
+SI,Slovenia,Europe,TRUE
+SB,Solomon Islands,Oceania,TRUE
+SO,Somalia,Africa,TRUE
+ZA,South Africa,Africa,TRUE
+KR,South Korea,Asia,TRUE
+SS,South Sudan,Africa,TRUE
+ES,Spain,Europe,TRUE
+LK,Sri Lanka,Asia,TRUE
+SD,Sudan,Africa,TRUE
+SR,Suriname,South America,TRUE
+SE,Sweden,Europe,TRUE
+CH,Switzerland,Europe,TRUE
+SY,Syria,Asia,TRUE
+TW,Taiwan,Asia,FALSE
+TJ,Tajikistan,Asia,TRUE
+TZ,Tanzania,Africa,TRUE
+TH,Thailand,Asia,TRUE
+TL,Timor-Leste,Asia,TRUE
+TG,Togo,Africa,TRUE
+TK,Tokelau,Oceania,FALSE
+TO,Tonga,Oceania,TRUE
+TT,Trinidad and Tobago,North America,TRUE
+TN,Tunisia,Africa,TRUE
+TR,Turkey,Asia,TRUE
+TM,Turkmenistan,Asia,TRUE
+TC,Turks and Caicos Islands,North America,FALSE
+TV,Tuvalu,Oceania,TRUE
+UG,Uganda,Africa,TRUE
+UA,Ukraine,Europe,TRUE
+AE,United Arab Emirates,Asia,TRUE
+GB,United Kingdom,Europe,TRUE
+US,United States,North America,TRUE
+VI,United States Virgin Islands,North America,FALSE
+UY,Uruguay,South America,TRUE
+UZ,Uzbekistan,Asia,TRUE
+VU,Vanuatu,Oceania,TRUE
+VA,Vatican City,Europe,TRUE
+VE,Venezuela,South America,TRUE
+VN,Vietnam,Asia,TRUE
+WF,Wallis and Futuna,Oceania,FALSE
+EH,Western Sahara,Africa,FALSE
+YE,Yemen,Asia,TRUE
+ZM,Zambia,Africa,TRUE
+ZW,Zimbabwe,Africa,TRUE
