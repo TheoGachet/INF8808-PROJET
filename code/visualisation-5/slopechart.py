@@ -1,16 +1,13 @@
-import pandas as pd
 import plotly.express as px
-from dash import dcc, html, Dash
-from dash.dependencies import Input, Output
 
 import preprocess
 import hover_template
 
 pays = "USA"
 
-def viz_5(df, pays):
+def viz_5(df, pays, season):
     ## Preprocess:
-    df_years = preprocess.rejet_annees(df, 1991, ete=True)
+    df_years = preprocess.rejet_annees(df, 1991, ete=(season == "ete"))
     years = sorted(df_years["Year"].unique())
     df_points = preprocess.points(df_years)
     df_without = preprocess.data_without(df_points)

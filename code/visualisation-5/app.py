@@ -10,7 +10,8 @@ import slopechart
 df = preprocess.load_csv("all_athlete_games.csv")
 
 pays = "USA"
-fig = slopechart.viz_5(df, pays)
+season = "ete"
+fig = slopechart.viz_5(df, pays, season)
 
 pays_disponibles = preprocess.sigles_pays
 
@@ -26,15 +27,25 @@ app.layout = html.Div([
         value=pays,  # Valeur par défaut
         placeholder="Sélectionnez un pays"
     ),
+    dcc.RadioItems(
+        id='season-toggle',
+        options=[
+            {'label': 'Été', 'value': 'ete'},
+            {'label': 'Hiver', 'value': 'hiver'}
+        ],
+        value='ete',
+        inline=True
+    ),
     dcc.Graph(id='slopechart')
 ])
 
 @app.callback(
     Output('slopechart', 'figure'),
-    [Input('dropdown-pays', 'value')]
+    [Input('dropdown-pays', 'value'),
+     Input('season-toggle', 'value')]
 )
-def update_slopechart(pays):
-    fig = slopechart.viz_5(df, pays)
+def update_slopechart(pays, season):
+    fig = slopechart.viz_5(df, pays, season)
     return fig
 
 if __name__ == '__main__':
