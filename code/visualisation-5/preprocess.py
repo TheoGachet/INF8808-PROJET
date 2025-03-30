@@ -89,24 +89,15 @@ def pays_points(data_with, data_without):
     return df_merged
 
 
-def get_usefull_dataframe_rank(pays):
-    years = sorted(data["Year"].unique())
-    points_with = df_pays[df_pays["Country"] == pays]["Points with"].values
-    points_without = df_pays[df_pays["Country"] == pays]["Points without"].values
+def get_usefull_dataframe(df_final, pays, years):
+    points_with = df_final[df_final["Country"] == pays]["Points with"].values
+    points_without = df_final[df_final["Country"] == pays]["Points without"].values
     df = pd.DataFrame({
         "Year": years + years,
         "Type": ["With" for _ in years] + ["Without" for _ in years],
         "Points": list(points_with) + list(points_without)
     })
     return df
-
-
-data = rejet_annees(data, 1991)
-
-data_point_with = points(data)
-data_point_without = data_without(data_point_with)
-
-df_pays = pays_points(data_point_with, data_point_without)
 
 # Choix arbitraire
 sigles_pays = ["USA", "CAN", "FRA", "GBR", "GER", "ITA", "ESP", "NED", "AUS", "JPN"]

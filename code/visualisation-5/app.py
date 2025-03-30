@@ -1,36 +1,41 @@
-# j'ai utilisé le TP3 comme base pour ajouter une visualisation dessus
-
 import dash
-from dash import html, dcc
+from dash import html, dcc, Dash
 import plotly.graph_objects as go
+import plotly.express as px
+from dash.dependencies import Input, Output
 
-# Import de la visualisation 5 (vide pour l’instant)
-from init import get_figure
+import preprocess
+import slopechart
+
+df = preprocess.load_csv("all_athlete_games.csv")
+
+pays = "USA"
+fig = slopechart.viz_5(df, pays)
+
+pays_disponibles = preprocess.sigles_pays
 
 app = dash.Dash(__name__)
 app.title = "Projet INF8808"
 
-fig = get_figure()
+app = Dash(__name__)
 
 app.layout = html.Div([
-    html.Header([
-        html.H1("Projet INF8808"),
-        html.H2("Visualisation 5")
-    ]),
-    html.Main([
-        dcc.Graph(
-            id='viz1-graph',
-            figure=fig,
-            config=dict(
-                scrollZoom=False,
-                showTips=False,
-                showAxisDragHandles=False,
-                doubleClick=False,
-                displayModeBar=False
-            )
-        )
-    ])
+    dcc.Dropdown(
+        id='dropdown-pays',
+        options=[{'label': p, 'value': p} for p in pays_disponibles],
+        value=pays,  # Valeur par défaut
+        placeholder="Sélectionnez un pays"
+    ),
+    dcc.Graph(id='slopechart')
 ])
 
-if __name__ == "__main__":
+@app.callback(
+    Output('slopechart', 'figure'),
+    [Input('dropdown-pays', 'value')]
+)
+def update_slopechart(pays):
+    fig = slopechart.viz_5(df, pays)
+    return fig
+
+if __name__ == '__main__':
     app.run_server(debug=True)
