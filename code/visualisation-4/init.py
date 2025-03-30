@@ -19,10 +19,6 @@ def get_output(season, discipline):
     noc_col_pays = "pays" if "pays" in df_pays.columns else "NOC"
     
     # Pour df_athletes, on utilise directement les noms tels qu'ils apparaissent dans le CSV :
-    # - "pays" pour le code pays,
-    # - "nom" pour le nom de l'athlète,
-    # - "discipline" pour la discipline,
-    # - "médaille" pour le nombre de médailles.
     noc_col = "pays"
     name_col = "nom"
     medal_col = "médaille"
