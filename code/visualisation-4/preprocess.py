@@ -1,5 +1,4 @@
-# j'ai utilisé le TP3 comme base pour ajouter une visualisation dessusc
-
+# preprocess.py
 import pandas as pd
 import os
 

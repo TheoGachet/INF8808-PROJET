@@ -1,5 +1,4 @@
-# j'ai utilisé le TP3 comme base pour ajouter une visualisation dessusc
-
+# template.py
 THEME = {
     'background_color': '#ffffff',
     'font_family': 'Arial, sans-serif',
@@ -9,7 +8,6 @@ THEME = {
 def create_custom_theme():
     """
     Placeholder pour la création d'un thème personnalisé.
-    Vous pourrez ajouter ici la configuration de votre thème Plotly.
     """
     pass
 

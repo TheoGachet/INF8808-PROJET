@@ -1,12 +1,9 @@
-# j'ai utilisé le TP3 comme base pour ajouter une visualisation dessus
-
-import preprocess as preprocess
+from init import get_output
 
 if __name__ == "__main__":
-    try:
-        df = preprocess.load_csv("INF8808/INF8808-PROJET/data/all_athlete_games.csv")
-        print("CSV chargé avec succès")
-        print(df.head())
-    except Exception as e:
-        print("Erreur lors du chargement du CSV")
-        print(e)
+    # Exemple de test pour la fonction get_output
+    season = "Summer"      # ou "Winter"
+    discipline = "Athletics"  # remplacez par une discipline présente dans disciplines_summer.csv
+    output_components = get_output(season, discipline)
+    for comp in output_components:
+        print(comp)
