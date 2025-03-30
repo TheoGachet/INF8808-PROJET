@@ -13,7 +13,7 @@ def load_csv(filename):
 data = load_csv("all_athlete_games.csv")
 
 
-def rejet_annee(data, annee_inf):
+def rejet_annees(data, annee_inf, ete = True):
     """
     Rejette les lignes dont la valeur de la colonne "Year" est inférieure à `annee_inf`.
     ---
@@ -25,6 +25,12 @@ def rejet_annee(data, annee_inf):
         -`data`: DataFrame sans les lignes rejetées
     """
     data["Year"] = data["Year"].astype("Int64")
+
+    if ete:
+        data = data[data["Season"] == "Summer"]
+    else:
+        data = data[data["Season"] == "Winter"]
+
 
     return data[data["Year"] >= annee_inf]
 
@@ -82,31 +88,16 @@ def pays_points(data_with, data_without):
 
     return df_merged
 
-def classement_pays(data, year, pays):
-    """
-    Retourne le classement des pays par nombre de points, lors de l'année spécifiée.
-    ---
-    Arguments:
-        -`data`: DataFrame
-    
-    Returns:
-        -`df_classement`: DataFrame
-    """
-    data = data[data['Year'] == year]
-    df_classement = data.groupby(['Country'])[["Points with", "Medals with"]].sum().reset_index()
-    df_classement = df_classement.sort_values(by=['Points with', "Medals with"], ascending=[False, True])
-    df_classement["Rank with"] = np.arange(1, len(df_classement) + 1)
 
+def get_usefull_dataframe(df_final, pays, years):
+    points_with = df_final[df_final["Country"] == pays]["Points with"].values
+    points_without = df_final[df_final["Country"] == pays]["Points without"].values
+    df = pd.DataFrame({
+        "Year": years + years,
+        "Type": ["With" for _ in years] + ["Without" for _ in years],
+        "Points": list(points_with) + list(points_without)
+    })
+    return df
 
-    # Modifier la case qui contient les "Points with" du pays précisé
-    df_classement.loc[df_classement['Country'] == pays, 'Points with'] = data.loc[data['Country'] == pays, 'Points without'].values[0]
-    df_classement.loc[df_classement['Country'] == pays, 'Medals with'] = data.loc[data['Country'] == pays, 'Medals without'].values[0]
-    df_classement.sort_values(by=['Points with', "Medals with"], ascending=[False, True])
-    df_classement["Rank without"] = np.arange(1, len(df_classement) + 1)
-
-data = rejet_annee(data, 1991)
-data_point_with = points(data)
-data_point_without = data_without(data_point_with)
-
-df_pays = pays_points(data_point_with, data_point_without).sort_values(by=["Year", "Points with"], ascending=False)
-df_classement = classement_pays(df_pays, 2020, "FRA")
+# Choix arbitraire
+sigles_pays = ["USA", "CAN", "FRA", "GBR", "GER", "ITA", "ESP", "NED", "AUS", "JPN"]
