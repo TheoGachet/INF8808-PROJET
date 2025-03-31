@@ -99,5 +99,28 @@ def get_usefull_dataframe(df_final, pays, years):
     })
     return df
 
-# Choix arbitraire
-sigles_pays = ["USA", "CAN", "FRA", "GBR", "GER", "ITA", "ESP", "NED", "AUS", "JPN"]
+# Choix arbitraire:
+pays_dispo = [("USA", "Etats-Unis"),
+               ("CAN", "Canada"),
+               ("FRA", "France"),
+               ("GBR", "Grande Bretagne"),
+               ("GER", "Allemagne"),
+               ("ITA", "Italie"),
+               ("JPN", "Japon"),
+               ("NED", "Pays-Bas"),
+               ("NZL", "Nouvelle-Zelande"),
+               ("NOR", "Norvège"),
+               ("SWE", "Suede"),
+               ("CHN", "Chine"),
+               ("IND", "Inde"),
+               ("RUS", "Russie"),
+               ("AUS", "Australie"),
+               ("BRA", "Brésil")]
+
+pays_dispo = sorted(pays_dispo, key=lambda x: x[1])
+
+def is_value_in_tuples(value, tuples_list):
+    for tpl in tuples_list:
+        if value in tpl:
+            return tpl
+    return None

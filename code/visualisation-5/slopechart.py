@@ -3,7 +3,8 @@ import plotly.express as px
 import preprocess
 import hover_template
 
-pays = "USA"
+pays_disponibles = preprocess.pays_dispo
+
 
 def viz_5(df, pays, season):
     ## Preprocess:
@@ -14,11 +15,13 @@ def viz_5(df, pays, season):
     df_final = preprocess.pays_points(df_points, df_without)
     usefull_df = preprocess.get_usefull_dataframe(df_final, pays, years)
 
+    _, full_pays = preprocess.is_value_in_tuples(pays, pays_disponibles)
+
     ## Figure:
     fig = px.line(usefull_df, x="Type", y="Points", color="Year",
                 color_discrete_sequence=px.colors.sequential.Blues[1:],
                 markers=True,
-                title=str("Slopechart des points de " + pays + " avec et sans leurs athlètes multi-médaillés")
+                title=str("Slopechart des points de " + full_pays + " avec et sans leurs athlètes multi-médaillés")
                 )
 
     fig.update_traces(line=dict(width=2),

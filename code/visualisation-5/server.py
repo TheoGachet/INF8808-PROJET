@@ -1,5 +1,3 @@
-# j'ai utilisé le TP3 comme base pour ajouter une visualisation dessusc
-
 from flask_failsafe import failsafe
 
 @failsafe

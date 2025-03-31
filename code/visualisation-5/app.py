@@ -13,7 +13,7 @@ pays = "USA"
 season = "ete"
 fig = slopechart.viz_5(df, pays, season)
 
-pays_disponibles = preprocess.sigles_pays
+pays_disponibles = preprocess.pays_dispo
 
 app = dash.Dash(__name__)
 app.title = "Projet INF8808"
@@ -23,7 +23,7 @@ app = Dash(__name__)
 app.layout = html.Div([
     dcc.Dropdown(
         id='dropdown-pays',
-        options=[{'label': p, 'value': p} for p in pays_disponibles],
+        options=[{'label': p, 'value': s} for (s,p) in pays_disponibles],
         value=pays,  # Valeur par défaut
         placeholder="Sélectionnez un pays"
     ),
