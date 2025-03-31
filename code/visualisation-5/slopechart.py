@@ -21,13 +21,26 @@ def viz_5(df, pays, season):
     fig = px.line(usefull_df, x="Type", y="Points", color="Year",
                 color_discrete_sequence=px.colors.sequential.Blues[1:],
                 markers=True,
-                title=str("Slopechart des points de " + full_pays + " avec et sans leurs athlètes multi-médaillés")
+                title=str("Nombre de points de " + full_pays + " avec et sans leurs athlètes multi-médaillés"),
+                hover_data={"Year": True, "Type" : True}
                 )
 
-    fig.update_traces(line=dict(width=2),
-                    hovertemplate=hover_template.get_hovertemplate(pays))
+    fig.update_layout(
+        xaxis_title="",
+        yaxis_title="Nombre de points",
+        )
+    
+    fig.update_xaxes(tickmode="array",
+                 tickvals=["With", "Without"], 
+                 ticktext=["Avec les multi-médaillés", "Sans les multi-médaillés"] 
+                )
 
-    fig.update_layout(xaxis=dict(type='category'),  # Forcer l'axe X en catégorie
+    for trace in fig.data:
+        trace.hovertemplate = hover_template.get_hovertemplate(pays)
+
+    fig.update_traces(line=dict(width=2))
+
+    fig.update_layout(xaxis=dict(type='category'),
                     width=700, height=700,  
                     xaxis_showgrid=False,  
                     yaxis_showgrid=False,
