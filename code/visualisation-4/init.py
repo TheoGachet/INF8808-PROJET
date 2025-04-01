@@ -23,7 +23,7 @@ def get_output(season, discipline):
     name_col = "nom"
     medal_col = "médaille"
     disc_col = "discipline"
-    
+     
     output_components = []
     output_components.append(html.H2(f"Visualisation pour {season} - Discipline: {discipline}"))
     output_components.append(html.P("Top 10 pays par points cumulés (1992-2020):"))
