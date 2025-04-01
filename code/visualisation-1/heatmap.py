@@ -3,6 +3,11 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
 import hover_template as hover
+import os
+
+# Charger le fichier CSV contenant les codes et noms des pays
+path = os.path.join("data", 'Countries_codes_names.csv')
+country_codes = pd.read_csv(path, sep=';')
 
 
 def create_multiple_heatmaps(data):
@@ -19,7 +24,7 @@ def create_multiple_heatmaps(data):
         cols = cols,
         subplot_titles = sports,  # Titres des sous-graphiques
         horizontal_spacing = 0.15,
-        vertical_spacing = 0.15
+        vertical_spacing = 0.10
     )
 
     # Parcours de chaque sport pour créer les heatmaps
@@ -32,17 +37,37 @@ def create_multiple_heatmaps(data):
         row = (i // cols) + 1
         col = (i % cols) + 1
 
+        # Calcul du total des médailles par pays (inclut "Others")
+        df['Total'] = df.sum(axis=1, numeric_only=True)
+
+        # Effectuer le tri sur tous les pays, y compris "Others"
+        df = df.sort_values(by='Total', ascending=False)
+
+        # S'assurer que "Others" est en dernier dans l'affichage
+        if "Others" in df.index:
+            df = pd.concat([df.drop(index="Others"), pd.DataFrame([df.loc["Others"]])])  # Déplace "Others" à la fin
+
+        # Supprimer la colonne "Total" après tri
+        df.drop(columns=['Total'], inplace=True)
+
+        # Inverser l'index pour que le pays avec le plus de médailles soit en haut
+        df = df.loc[df.index[::-1]]
+
+        # Mapper les codes des pays aux noms complets
+        country_mapping = dict(zip(country_codes['Code'], country_codes['Name']))
+        df.index = df.index.map(lambda code: country_mapping.get(code, code))  # Remplacer les codes par les noms complets
+
         heatmap = go.Heatmap(
             z = df.values,
             x = df.columns,  # Années
-            y = df.index,  # Pays
+            y=df.index.tolist(),  # Forcer l'ordre des pays
             xgap = 5,  # Espacement horizontal entre les cases
             ygap = 5,   # Espacement vertical entre les cases
             colorscale = "Blues",
             colorbar = dict(
-                x = 0.15 + (col - 1) * 0.29,  # Décale la légende à droite de chaque heatmap
-                y = 0.93 - (row - 1) * (1.15 / rows),  # Aligne la légende avec chaque subplot
-                len = 0.2  # Ajuste la hauteur de la barre de couleurs
+            x = 0.15 + (col - 1) * 0.29,  # Décale la légende à droite de chaque heatmap
+            y = 0.91 - (row - 1) * (1.10 / rows),  # Aligne la légende avec chaque subplot
+            len = 0.22  # Ajuste la hauteur de la barre de couleurs
             ),
             hovertemplate=hover.get_hover_template(sport)  # Ajout des informations manquantes
         )
@@ -71,6 +96,19 @@ def create_multiple_heatmaps(data):
                         yref=f"y{i+1}",
                         line=dict(color="red", width=2),
                     )
+
+    # # Ajouter une légende pour le rectangle rouge
+    # fig.add_shape(
+    #     type="rect",
+    #     x0=0,  # Position fictive pour la légende
+    #     x1=1,
+    #     y0=0,
+    #     y1=1,
+    #     xref="paper",
+    #     yref="paper",
+    #     line=dict(color="red", width=2),
+    #     name="Pays organisateur"
+    # )
 
     # Mise à jour de la mise en page globale
     fig.update_layout(

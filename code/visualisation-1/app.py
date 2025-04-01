@@ -9,12 +9,11 @@ from dash.dependencies import Input, Output
 from init import get_figure as viz1_get_figure
 import preprocess
 import heatmap
-import seasons
 
 app = dash.Dash(__name__)
 app.title = "Projet INF8808"
 
-data = preprocess.convert_data()
+data = preprocess.convert_data('Summer')
 
 empty_fig = viz1_get_figure()
 
@@ -28,10 +27,10 @@ app.layout = html.Div([
         dcc.RadioItems(
             id='season-toggle',
             options=[
-                {'label': 'Été', 'value': 'été'},
-                {'label': 'Hiver', 'value': 'hiver'}
+                {'label': 'Summer Olympics', 'value': 'Summer'},
+                {'label': 'Winter Olympics', 'value': 'Winter'}
             ],
-            value='été',
+            value='Summer',
             labelStyle={'display': 'inline-block'}
         ),
         dcc.Graph(
@@ -53,8 +52,10 @@ app.layout = html.Div([
     Output('viz1-graph', 'figure'),
     [Input('season-toggle', 'value')]
 )
+
 def update_figure(selected_season):
     # Replace this with the logic to update the figure based on the selected season
+    data = preprocess.convert_data(selected_season)
     return heatmap.create_multiple_heatmaps(data)
 
 if __name__ == "__main__":

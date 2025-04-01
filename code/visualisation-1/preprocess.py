@@ -14,20 +14,18 @@ def load_csv(filename):
 
 data = load_csv("all_athlete_games.csv")
 
+
+
 summer_sports = [
     "Athletics", "Badminton", "Basketball", "Boxing",
     "Canoeing", "Cycling", "Fencing", "Football", "Gymnastics",
     "Handball", "Judo", "Rowing", "Sailing", "Swimming", "Weightlifting", "Wrestling"
 ]
 
-summer_countries = ['FRA', 'USA', 'CHN', 'RUS', 'GER', 'GBR', 'JPN', 'AUS', 'ITA', 'CAN']
-
 winter_sports = [
     "Alpine Skiing", "Biathlon", "Bobsleigh", "Cross Country Skiing", "Curling", 
     "Figure Skating", "Ice Hockey", "Luge", "Nordic Combined", "Ski Jumping", "Skeleton", "Snowboarding"
 ]
-
-winter_countries = ['NOR', 'USA', 'GER', 'AUT', 'CAN', 'SWE', 'FIN', 'RUS', 'SUI', 'ITA']
 
 organaizing_countries ={
     "Albertville": "FRA",
@@ -75,7 +73,7 @@ organaizing_countries ={
 }
 
 
-def convert_data():
+def convert_data(season):
 
     """
     Convertit les données pour obtenir les médailles par sport et par pays.
@@ -83,8 +81,13 @@ def convert_data():
     10 meilleurs pays par sport, en regroupant les autres pays sous 'Others'.
     """
 
-    sports = summer_sports  # Liste des sports d'été à analyser
-    season = 'Summer'  # Saison des sports à analyser
+    # sports = summer_sports  # Liste des sports d'été à analyser
+    # season = 'summer'  # Saison des sports à analyser
+
+    if season == 'Summer':
+        sports = summer_sports
+    else:
+        sports = winter_sports
 
     medal_counts = {}  # Dictionnaire pour stocker les médailles par sport
 
