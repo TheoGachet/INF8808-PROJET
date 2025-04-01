@@ -99,23 +99,24 @@ def get_usefull_dataframe(df_final, pays, years):
     })
     return df
 
-# Choix arbitraire:
-pays_dispo = [("USA", "Etats-Unis"),
+# Choix arbitraire + Mapping:
+pays_dispo = [("USA", "United States"),
                ("CAN", "Canada"),
                ("FRA", "France"),
-               ("GBR", "Grande Bretagne"),
-               ("GER", "Allemagne"),
-               ("ITA", "Italie"),
-               ("JPN", "Japon"),
-               ("NED", "Pays-Bas"),
-               ("NZL", "Nouvelle-Zelande"),
-               ("NOR", "Norvège"),
-               ("SWE", "Suede"),
-               ("CHN", "Chine"),
-               ("IND", "Inde"),
-               ("RUS", "Russie"),
-               ("AUS", "Australie"),
-               ("BRA", "Brésil")]
+               ("GBR", "Great Britain"),
+               ("GER", "Germany"),
+               ("ITA", "Italy"),
+               ("JPN", "Japan"),
+               ("NED", "Netherlands"),
+               ("NZL", "New-Zeland"),
+               ("NOR", "Norway"),
+               ("SWE", "Sweden"),
+               ("CHN", "China"),
+               ("IND", "India"),
+               ("AUS", "Australia"),
+               ("BRA", "Brazil"),
+               ("ESP", "Spain"),
+               ("POR", "Portugal")]
 
 pays_dispo = sorted(pays_dispo, key=lambda x: x[1])
 

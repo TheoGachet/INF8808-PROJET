@@ -21,29 +21,49 @@ def viz_5(df, pays, season):
     fig = px.line(usefull_df, x="Type", y="Points", color="Year",
                 color_discrete_sequence=px.colors.sequential.Blues[1:],
                 markers=True,
-                title=str("Nombre de points de " + full_pays + " avec et sans leurs athlètes multi-médaillés"),
+                title=str(full_pays + " points with and without multi-medalists athletes"),
                 hover_data={"Year": True, "Type" : True}
                 )
 
     fig.update_layout(
+        height = 700,
+        margin=dict(l=600, r=600, t=100, b=0),
+        plot_bgcolor = 'lightgrey', 
+
+        xaxis=dict(type='category'),
+        xaxis_showgrid=False,  
+        yaxis_showgrid=False,
         xaxis_title="",
-        yaxis_title="Nombre de points",
+
+        yaxis2=dict(
+            title="Secondary Axis",
+            overlaying="y",
+            side="right",
+            showgrid=False
+        ),
+
+        legend=dict(
+            x=1.5,
+            y=0.5,
+            xanchor="center",
+            yanchor="bottom"
+            ),
+
+        title=dict(text=fig.layout.title.text, x=0.5),
         )
     
     fig.update_xaxes(tickmode="array",
                  tickvals=["With", "Without"], 
-                 ticktext=["Avec les multi-médaillés", "Sans les multi-médaillés"] 
+                 ticktext=["With multi medalists", "Without multi medalists"] 
                 )
 
     for trace in fig.data:
         trace.hovertemplate = hover_template.get_hovertemplate(pays)
+    
+    # fig.data[0].line.color = "red"
 
     fig.update_traces(line=dict(width=2))
 
-    fig.update_layout(xaxis=dict(type='category'),
-                    width=700, height=700,  
-                    xaxis_showgrid=False,  
-                    yaxis_showgrid=False,
-                    plot_bgcolor = 'lightgrey')
+    fig.update_layout()
     
     return fig
