@@ -13,7 +13,7 @@ pays = "USA"
 season = "ete"
 fig = slopechart.viz_5(df, pays, season)
 
-pays_disponibles = preprocess.sigles_pays
+pays_disponibles = preprocess.pays_dispo
 
 app = dash.Dash(__name__)
 app.title = "Projet INF8808"
@@ -23,21 +23,25 @@ app = Dash(__name__)
 app.layout = html.Div([
     dcc.Dropdown(
         id='dropdown-pays',
-        options=[{'label': p, 'value': p} for p in pays_disponibles],
+        options=[{'label': p, 'value': s} for (s, p) in pays_disponibles],
         value=pays,  # Valeur par défaut
-        placeholder="Sélectionnez un pays"
+        placeholder="Select a country",
+        style={'width': '50%', 'margin': '0 auto'}
     ),
     dcc.RadioItems(
         id='season-toggle',
         options=[
-            {'label': 'Été', 'value': 'ete'},
-            {'label': 'Hiver', 'value': 'hiver'}
+            {'label': 'Summer', 'value': 'ete'},
+            {'label': 'Winter', 'value': 'hiver'}
         ],
         value='ete',
-        inline=True
+        inline=True,
+        style={'textAlign': 'center', 'margin': '10px 0'}
     ),
-    dcc.Graph(id='slopechart')
-])
+    dcc.Graph(
+        id='slopechart'
+    )
+], style={'textAlign': 'center'})  # Centrer tout le contenu
 
 @app.callback(
     Output('slopechart', 'figure'),
