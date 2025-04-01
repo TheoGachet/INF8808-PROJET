@@ -14,7 +14,7 @@ def top_athletes_by_country(athletes_file, top_countries, top_athletes_per_count
     Pour chaque pays dans la liste top_countries,
     sélectionne la réunion de deux ensembles :
       - Les top 'top_athletes_per_country' athlètes (triés par la colonne 'médaille' décroissante),
-      - Tous les athlètes ayant plus de 5 médailles.
+      - Tous les athlètes ayant >= 5 médailles.
     
     Retourne un DataFrame contenant l'ensemble des athlètes sélectionnés.
     """
@@ -28,8 +28,8 @@ def top_athletes_by_country(athletes_file, top_countries, top_athletes_per_count
         
         # Sélectionner les top 10 athlètes par médaille (score décroissant)
         df_top10 = df_country.sort_values(by='médaille', ascending=False).head(top_athletes_per_country)
-        # Sélectionner tous les athlètes ayant plus de 5 médailles
-        df_above5 = df_country[df_country['médaille'] > 5]
+        # Sélectionner tous les athlètes ayant >= 5 médailles
+        df_above5 = df_country[df_country['médaille'] >= 5]
         # Combiner les deux ensembles et supprimer les doublons
         df_combined = pd.concat([df_top10, df_above5]).drop_duplicates()
         dfs.append(df_combined)
@@ -48,7 +48,7 @@ def create_top_athletes_csv():
       1. Lit le fichier des top 10 pays (top10_pays_summer.csv ou top10_pays_winter.csv),
       2. Extrait la liste des pays,
       3. Lit le CSV des athlètes correspondant (athletes_summer.csv ou athletes_hiver.csv),
-      4. Pour chaque pays, sélectionne la réunion des 10 athlètes ayant le plus haut score OU tous ceux qui ont plus de 5 médailles,
+      4. Pour chaque pays, sélectionne la réunion des 10 athlètes ayant le plus haut score OU tous ceux qui ont >= 5 médailles,
       5. Sauvegarde le résultat dans un CSV distinct.
     """
     # Traitement pour la saison été
