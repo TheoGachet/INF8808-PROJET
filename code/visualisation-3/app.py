@@ -8,21 +8,21 @@ app.title = 'TP3 | INF8808'
 
 # Initial load
 df = preprocess_ete_hiver.load_csv("all_athlete_games.csv")
-df_filtered = preprocess_ete_hiver.preprocess_data(df, season="Summer")  # par défaut été
-fig = lolipop.create_lollipop_figure(df_filtered, season="Summer")  # <-- saison ajoutée
+df_filtered = preprocess_ete_hiver.preprocess_data(df, season="Summer")  # default is Summer
+fig = lolipop.create_lollipop_figure(df_filtered, season="Summer")  # <-- season added
 
 app.layout = html.Div([
     html.Header([
-        html.H1("Visualisation des performances aux JO", style={"textAlign": "center"}),
+        html.H1("Visualization of Olympic Performances", style={"textAlign": "center"}),
     ]),
     html.Div([
-        html.H2("Comparaison des performances des pays organisateurs des JO", style={"textAlign": "center"}),
+        html.H2("Comparison of Host Countries' Olympic Performances", style={"textAlign": "center"}),
         html.Div([
             dcc.RadioItems(
                 id='season-filter',
                 options=[
-                    {"label": "Jeux d'été", "value": "Summer"},
-                    {"label": "Jeux d'hiver", "value": "Winter"}
+                    {"label": "Summer Olympics", "value": "Summer"},
+                    {"label": "Winter Olympics", "value": "Winter"}
                 ],
                 value="Summer",
                 labelStyle={'display': 'inline-block', 'margin': '0 10px'},
@@ -40,7 +40,7 @@ app.layout = html.Div([
 )
 def update_figure(selected_season):
     df_filtered = preprocess_ete_hiver.preprocess_data(df, season=selected_season)
-    fig = lolipop.create_lollipop_figure(df_filtered, season=selected_season)  # <-- saison ajoutée ici aussi
+    fig = lolipop.create_lollipop_figure(df_filtered, season=selected_season)  # <-- season added here too
     return fig
 
 if __name__ == "__main__":

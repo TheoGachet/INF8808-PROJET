@@ -3,7 +3,7 @@
 '''
 
 def get_host_years_by_country(season):
-    # Jeux Olympiques d'été
+    # Summer Olympics
     summer_map = {
         '1945-1991': {
             "United Kingdom": [1948],
@@ -30,7 +30,7 @@ def get_host_years_by_country(season):
         }
     }
 
-    # Jeux Olympiques d'hiver
+    # Winter Olympics
     winter_map = {
         '1945-1991': {
             "Switzerland": [1948],
@@ -57,24 +57,13 @@ def get_host_years_by_country(season):
 
     return summer_map if season == "Summer" else winter_map
 
-'''
-    Provides the templates for the tooltips in the lollipop charts.
-'''
-
-'''
-    Provides the templates for the tooltips in the lollipop charts.
-'''
-
-'''
-    Provides the templates for the tooltips in the lollipop charts.
-'''
 
 def get_hover_template(metric_label, is_host):
     """
     Returns a hover template string for host or away points.
 
     Args:
-        metric_label (str): Label of the metric (e.g. 'athlètes', 'médailles')
+        metric_label (str): Label of the metric (e.g., 'athletes', 'medals')
         is_host (bool): True if the point is for a host value, False for away
 
     Returns:
@@ -83,24 +72,14 @@ def get_hover_template(metric_label, is_host):
     if is_host:
         template = (
             "<span style='font-family:Roboto Slab'><extra></extra><br>"
-            "<b>Pays</b> : %{customdata[0]}<br>"
-            "<b>" + metric_label.capitalize() + "</b> : %{x}<br>"
-            "<b>Éditions à domicile</b> : %{customdata[1]}"
+            "<b>Country</b>: %{customdata[0]}<br>"
+            "<b>" + metric_label.capitalize() + "</b>: %{x}<br>"
+            "<b>Home editions</b>: %{customdata[1]}"
         )
     else:
         template = (
             "<span style='font-family:Roboto Slab'><extra></extra><br>"
-            "<b>Pays</b> : %{customdata[0]}<br>"
-            "<b>" + metric_label.capitalize() + "</b> : %{x}<br>"
+            "<b>Country</b>: %{customdata[0]}<br>"
+            "<b>" + metric_label.capitalize() + "</b>: %{x}<br>"
         )
     return template
-
-
-
-
-
-
-
-
-
-
