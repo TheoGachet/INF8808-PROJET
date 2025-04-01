@@ -24,7 +24,7 @@ def create_multiple_heatmaps(data):
         cols = cols,
         subplot_titles = sports,  # Titres des sous-graphiques
         horizontal_spacing = 0.15,
-        vertical_spacing = 0.10
+        vertical_spacing = 0.10,
     )
 
     # Parcours de chaque sport pour créer les heatmaps
@@ -55,12 +55,12 @@ def create_multiple_heatmaps(data):
 
         # Mapper les codes des pays aux noms complets
         country_mapping = dict(zip(country_codes['Code'], country_codes['Name']))
-        df.index = df.index.map(lambda code: country_mapping.get(code, code))  # Remplacer les codes par les noms complets
+        y_labels = [country_mapping.get(code, code) for code in df.index]  # Générer une liste des noms complets
 
         heatmap = go.Heatmap(
             z = df.values,
             x = df.columns,  # Années
-            y=df.index.tolist(),  # Forcer l'ordre des pays
+            y = y_labels,  # Forcer l'ordre des pays
             xgap = 5,  # Espacement horizontal entre les cases
             ygap = 5,   # Espacement vertical entre les cases
             colorscale = "Blues",
@@ -97,24 +97,37 @@ def create_multiple_heatmaps(data):
                         line=dict(color="red", width=2),
                     )
 
-    # # Ajouter une légende pour le rectangle rouge
-    # fig.add_shape(
-    #     type="rect",
-    #     x0=0,  # Position fictive pour la légende
-    #     x1=1,
-    #     y0=0,
-    #     y1=1,
-    #     xref="paper",
-    #     yref="paper",
-    #     line=dict(color="red", width=2),
-    #     name="Pays organisateur"
-    # )
+    # Ajouter une légende pour le rectangle rouge en utilisant une case fictive de la heatmap
+    fig.add_trace(
+        go.Scatter(
+            x=[None],  # Valeur fictive pour la légende
+            y=[None],
+            mode="markers",
+            marker=dict(
+                size=12,
+                color="red",
+                symbol="square-open"  # Carré non rempli
+            ),
+            name="Pays organisateur"
+        )
+    )
+
+    # Mise à jour de la position de la légende pour qu'elle soit affichée en haut des heatmaps
+    fig.update_layout(
+        legend=dict(
+            orientation="h",  # Légende horizontale
+            yanchor="bottom",
+            y=1.05,  # Position au-dessus des heatmaps
+            xanchor="center",
+            x=0.5  # Centrer la légende
+        )
+    )
 
     # Mise à jour de la mise en page globale
     fig.update_layout(
         height = rows * 370,  # Ajustement de la hauteur en fonction du nombre de lignes
         width = cols * 370,  # Augmentation de la largeur pour bien afficher les légendes
-        showlegend = False  # Activer la légende globale
+        showlegend = True,  # Activer la légende globale
     )
 
     return fig

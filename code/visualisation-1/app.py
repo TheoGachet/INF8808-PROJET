@@ -20,8 +20,10 @@ empty_fig = viz1_get_figure()
 # Ajout du bouton pour changer de saison
 app.layout = html.Div([
     html.Header([
-        html.H1("Projet INF8808"),
-        html.H2("Visualisation 1")
+        html.H2(
+            "Nombre de médailles gagnés par pays selon les éditions",
+            style={'textAlign': 'center'}
+        )
     ]),
     html.Main([
         dcc.RadioItems(
@@ -31,7 +33,7 @@ app.layout = html.Div([
                 {'label': 'Winter Olympics', 'value': 'Winter'}
             ],
             value='Summer',
-            labelStyle={'display': 'inline-block'}
+            style={'textAlign': 'center', 'margin': '10px 0', 'display': 'flex', 'justify-content': 'center', 'gap': '20px'}
         ),
         dcc.Graph(
             id='viz1-graph',

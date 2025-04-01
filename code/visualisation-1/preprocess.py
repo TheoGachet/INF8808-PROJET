@@ -15,7 +15,6 @@ def load_csv(filename):
 data = load_csv("all_athlete_games.csv")
 
 
-
 summer_sports = [
     "Athletics", "Badminton", "Basketball", "Boxing",
     "Canoeing", "Cycling", "Fencing", "Football", "Gymnastics",
@@ -86,13 +85,15 @@ def convert_data(season):
 
     if season == 'Summer':
         sports = summer_sports
+        filtered_data = data[(data['Year'] >= 1992) & (data['Year'] <= 2020)]
     else:
         sports = winter_sports
+        filtered_data = data[(data['Year'] >= 1994) & (data['Year'] <= 2020)]
 
     medal_counts = {}  # Dictionnaire pour stocker les médailles par sport
 
     # Filtrer les données pour les années entre 1991 et 2020
-    filtered_data = data[(data['Year'] >= 1992) & (data['Year'] <= 2020)]
+    # filtered_data = data[(data['Year'] >= 1992) & (data['Year'] <= 2020)]
 
     for sport in sports:
         # Filtrer les données pour un sport spécifique
