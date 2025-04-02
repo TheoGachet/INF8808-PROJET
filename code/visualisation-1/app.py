@@ -10,55 +10,70 @@ from init import get_figure as viz1_get_figure
 import preprocess
 import heatmap
 
-app = dash.Dash(__name__)
-app.title = "Projet INF8808"
 
+# Création de l'application Dash
+app = dash.Dash(__name__)
+app.title = "Projet INF8808"  # Titre de l'application
+
+# Prétraitement des données pour la saison "Summer"
 data = preprocess.convert_data('Summer')
 
+# Création d'une figure vide pour la visualisation 1
 empty_fig = viz1_get_figure()
 
-# Ajout du bouton pour changer de saison
+# Définition de la mise en page de l'application
 app.layout = html.Div([
+    # En-tête de l'application
     html.Header([
         html.H2(
-            "Nombre de médailles gagnés par pays selon les éditions",
-            style={'textAlign': 'center'}
+            "Nombre de médailles gagnés par pays selon les éditions",  # Titre principal
+            style={'textAlign': 'center'}  # Centrer le texte
         )
     ]),
+    # Contenu principal de l'application
     html.Main([
+        # Bouton radio pour basculer entre les saisons
         dcc.RadioItems(
-            id='season-toggle',
+            id='season-toggle',  # Identifiant pour le composant
             options=[
-                {'label': 'Summer Olympics', 'value': 'Summer'},
-                {'label': 'Winter Olympics', 'value': 'Winter'}
+                {'label': 'Summer Olympics', 'value': 'Summer'},  # Option pour les Jeux d'été
+                {'label': 'Winter Olympics', 'value': 'Winter'}   # Option pour les Jeux d'hiver
             ],
-            value='Summer',
-            style={'textAlign': 'center', 'margin': '10px 0', 'display': 'flex', 'justify-content': 'center', 'gap': '20px'}
+            value='Summer',  # Valeur par défaut
+            style={
+                'textAlign': 'center',  # Centrer le composant
+                'margin': '10px 0',  # Marges
+                'display': 'flex',  # Disposition en flexbox
+                'justify-content': 'center',  # Centrer horizontalement
+                'gap': '20px'  # Espacement entre les options
+            }
         ),
+        # Graphique pour afficher les visualisations
         dcc.Graph(
-            id='viz1-graph',
-            figure=heatmap.create_multiple_heatmaps(data),
+            id='viz1-graph',  # Identifiant pour le graphique
+            figure=heatmap.create_multiple_heatmaps(data),  # Génération initiale du graphique
             config=dict(
-                scrollZoom=False,
-                showTips=False,
-                showAxisDragHandles=False,
-                doubleClick=False,
-                displayModeBar=False
+                scrollZoom=False,  # Désactiver le zoom avec la molette
+                showTips=False,  # Désactiver les infobulles
+                showAxisDragHandles=False,  # Désactiver les poignées de glissement des axes
+                doubleClick=False,  # Désactiver le double-clic
+                displayModeBar=False  # Masquer la barre d'outils
             )
         )
     ])
 ])
 
-# Callback pour changer entre les saisons
+# Définition du callback pour mettre à jour le graphique en fonction de la saison sélectionnée
 @app.callback(
-    Output('viz1-graph', 'figure'),
-    [Input('season-toggle', 'value')]
+    Output('viz1-graph', 'figure'),  # Mise à jour de la figure du graphique
+    [Input('season-toggle', 'value')]  # Entrée : valeur sélectionnée dans le bouton radio
 )
-
 def update_figure(selected_season):
-    # Replace this with the logic to update the figure based on the selected season
+    # Prétraitement des données pour la saison sélectionnée
     data = preprocess.convert_data(selected_season)
+    # Génération du graphique mis à jour
     return heatmap.create_multiple_heatmaps(data)
 
+# Lancement du serveur Dash en mode debug
 if __name__ == "__main__":
     app.run_server(debug=True)
