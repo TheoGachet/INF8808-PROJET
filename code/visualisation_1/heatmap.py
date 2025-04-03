@@ -2,7 +2,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
-import hover_template as hover
+import visualisation_1.hover_template as hover
 import os
 
 # Charger le fichier CSV contenant les codes et noms des pays
