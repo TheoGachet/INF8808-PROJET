@@ -1,6 +1,7 @@
 import dash
 from dash import html
 from visualisation_1.app import get_viz_1_html
+from visualisation_3.app import get_viz_3_html
 
 app = dash.Dash(__name__)
 app.title = "Projet INF8808"
@@ -33,7 +34,8 @@ app.layout = html.Div([
             ], 
             className="section-row"
         ),
-        get_viz_1_html()
+        get_viz_1_html(),
+        get_viz_3_html(),
     ])
 ])
 
