@@ -30,8 +30,8 @@ def get_viz_5_html():
         dcc.RadioItems(
             id='viz5-season-toggle',
             options=[
-                {'label': 'Summer', 'value': 'ete'},
-                {'label': 'Winter', 'value': 'hiver'}
+                {'label': 'Summer Olympics', 'value': 'ete'},
+                {'label': 'Winter Olympics', 'value': 'hiver'}
             ],
             value='ete',
             inline=True,
