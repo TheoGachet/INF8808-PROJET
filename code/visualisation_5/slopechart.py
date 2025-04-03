@@ -1,7 +1,7 @@
 import plotly.express as px
 
-import preprocess
-import hover_template
+import visualisation_5.preprocess as preprocess
+import visualisation_5.hover_template as hover_template
 
 pays_disponibles = preprocess.pays_dispo
 
