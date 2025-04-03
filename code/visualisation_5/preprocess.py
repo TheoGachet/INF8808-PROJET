@@ -115,8 +115,7 @@ pays_dispo = [("USA", "United States"),
                ("IND", "India"),
                ("AUS", "Australia"),
                ("BRA", "Brazil"),
-               ("ESP", "Spain"),
-               ("POR", "Portugal")]
+               ("ESP", "Spain")]
 
 pays_dispo = sorted(pays_dispo, key=lambda x: x[1])
 
