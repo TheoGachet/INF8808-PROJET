@@ -19,13 +19,26 @@ def get_viz_5_html():
     return html.Div([
         html.Div([
             html.H1("Visualisation 5 (TODO: changer ce titre)", style={"textAlign": "center"}),
+            html.Div(
+                html.P(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt " \
+                    "ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco " \
+                    "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in " \
+                    "voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat " \
+                    "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                ),
+                className="viz-description"
+            ),
         ]),
-        dcc.Dropdown(
-            id='dropdown-pays',
-            options=[{'label': p, 'value': s} for (s, p) in pays_disponibles],
-            value=pays,  # Valeur par défaut
-            placeholder="Select a country",
-            style={'width': '50%', 'margin': '0 auto'}
+        html.Div(
+            dcc.Dropdown(
+                id='dropdown-pays',
+                options=[{'label': p, 'value': s} for (s, p) in pays_disponibles],
+                value=pays,  # Valeur par défaut
+                placeholder="Select a country",
+                style={"width": "200px", 'margin': '20px 20px', 'textAlign': 'center'},
+            ),
+            className='centered'
         ),
         dcc.RadioItems(
             id='viz5-season-toggle',

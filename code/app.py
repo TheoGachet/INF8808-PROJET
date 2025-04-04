@@ -21,25 +21,61 @@ app.layout = html.Div([
                     "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " \
                     "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
                     className="section-title"
-                )
+                ),
+                html.Div([
+                    html.A(
+                        "Spécialisation par sport",
+                        href="#viz1-section",
+                        id="btn1"
+                    ),
+                    html.A(
+                        "Conditions du pays",
+                        href="#viz2-section",
+                        id="btn2"
+                    ),
+                    html.A(
+                        "Avantage à domicile",
+                        href="#viz3-section",
+                        id="btn3"
+                    ),
+                    html.A(
+                        "Héros nationaux",
+                        href="#viz4-section",
+                        id="btn4"
+                    ),
+                    html.A(
+                        "Impact individuel",
+                        href="#viz5-section",
+                        id="btn5"
+                    ),
+                ], className="ring-grid", style={'margin': '50px auto', 'width': 'fit-content'})
                 ],
                 className="section-column start p-40"    
             ),
             html.Div([
-                html.H1(
-                    "IMAGE",
-                    className="section-title"
-                )
+                    html.Img(src="assets/images/home_image.png", className="home-image")
                 ],
                 className="section-column center"    
             ),
             ], 
             className="section-row"
         ),
-        get_viz_1_html(),
-        get_viz_3_html(),
-        get_viz_4_html(),
-        get_viz_5_html()
+        html.Div(
+            [get_viz_1_html()],
+            id="viz1-section"
+        ),
+        html.Div(
+            [get_viz_3_html()],
+            id="viz3-section"
+        ),
+        html.Div(
+            [get_viz_4_html()],
+            id="viz4-section"
+        ),
+        html.Div(
+            [get_viz_5_html()],
+            id="viz5-section"
+        ),
     ])
 ])
 
