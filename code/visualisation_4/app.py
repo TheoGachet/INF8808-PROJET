@@ -6,7 +6,16 @@ from visualisation_4.preprocess import load_csv  # utilisé pour charger le CSV 
 def get_viz_4_html():
     return html.Div([
         html.H1("Visualisation 4 - Athlètes par Pays"),
-        
+        html.Div(
+                html.P(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt " \
+                    "ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco " \
+                    "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in " \
+                    "voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat " \
+                    "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                ),
+                className="viz-description"
+        ),
         html.Div([
             html.Label("Sélectionner le type de Jeux:"),
             dcc.RadioItems(
@@ -15,7 +24,7 @@ def get_viz_4_html():
                 value='Summer',
                 labelStyle={'display': 'inline-block', 'margin-right': '10px'}
             ),
-        ], style={'margin-bottom': '20px'}),
+        ], style={'margin': '20px 20px'}),
         
         html.Div([
             html.Label("Sélectionner une discipline:"),
@@ -28,7 +37,8 @@ def get_viz_4_html():
         
         html.Hr(),
         html.Div(id='output-text', style={'whiteSpace': 'pre-line', 'fontFamily': 'monospace'})
-    ])
+    ],
+    className="centered")
 
 # Callback pour mettre à jour la liste des disciplines en fonction de la saison sélectionnée.
 @callback(

@@ -22,9 +22,19 @@ def get_viz_1_html():
     return html.Div([
         # En-tête de l'application
         html.Div([
-            html.H2(
+            html.H1(
                 "Nombre de médailles gagnés par pays selon les éditions",  # Titre principal
                 style={'textAlign': 'center'}  # Centrer le texte
+            ),
+            html.Div(
+                html.P(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt " \
+                    "ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco " \
+                    "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in " \
+                    "voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat " \
+                    "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                ),
+                className="viz-description"
             )
         ]),
         # Contenu principal de l'application
@@ -57,7 +67,9 @@ def get_viz_1_html():
                     displayModeBar=False  # Masquer la barre d'outils
                 )
             )
-        ])
+        ],
+        className="centered"
+        )
     ])
 
 # Définition du callback pour mettre à jour le graphique en fonction de la saison sélectionnée

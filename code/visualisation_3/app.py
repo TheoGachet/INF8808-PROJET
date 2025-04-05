@@ -15,6 +15,16 @@ def get_viz_3_html():
         ]),
         html.Div([
             html.H2("Comparaison des performances des pays organisateurs des JO", style={"textAlign": "center"}),
+            html.Div(
+                html.P(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt " \
+                    "ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco " \
+                    "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in " \
+                    "voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat " \
+                    "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                ),
+                className="viz-description"
+            ),
             html.Div([
                 dcc.RadioItems(
                     id='season-filter',
@@ -26,7 +36,7 @@ def get_viz_3_html():
                     labelStyle={'display': 'inline-block', 'margin': '0 10px'},
                     inputStyle={"margin-right": "5px"}
                 )
-            ], style={'textAlign': 'center', 'marginBottom': '20px'}),
+            ], style={'textAlign': 'center', 'margin': '20px 20px'}),
             dcc.Graph(id='lollipop-graph', figure=fig)
         ])
     ])

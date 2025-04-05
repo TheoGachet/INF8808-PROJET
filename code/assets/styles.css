@@ -1,3 +1,12 @@
+body {
+    background-color: #FDFDFD;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 .section-title {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -9,8 +18,8 @@ p.section-title {
 
 .section-row {
     display: flex;
-    height: 100vh;            /* 100% de la hauteur de l’écran */
-    width: 100vw;             /* 100% de la largeur de l’écran */
+    height: 100vh;            /* 100% screen height */
+    width: 100vw;             /* 100% screen width */
 }
 
 .section-column {
@@ -22,15 +31,89 @@ p.section-title {
 }
 
 .section-column.start {
-  justify-content: center;       /* Aligner horizontalement */
-  align-items: flex-start;       /* Aligner verticalement */
+  justify-content: center;       /* align horizontally */
+  align-items: flex-start;       /* align vertically */
 }
 
 .section-column.center {
-    justify-content: center;     /* Aligner horizontalement */
-    align-items: center;         /* Aligner verticalement */
+    justify-content: center;     /* align horizontally */
+    align-items: center;         /* align vertically */
 }
 
 .p-40 {
     padding: 40px;
+}
+
+.home-image {
+    width: 80%;
+    display: block;
+}
+
+.viz-description {
+    display: flex;
+    width: 60%;
+    justify-content: center; 
+    margin: 0 auto;
+    text-align: center;
+    background-color: #F2F2F2;
+    padding: 25px;
+    border-radius: 10px;
+    font-size: 17px;
+    color: #646464;
+}
+
+.centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Grid for the buttons with olympics style */
+.ring-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 120px);
+    grid-template-rows: 60px 60px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+  }
+  
+/* position in the grid */
+#btn1 { grid-column: 1; grid-row: 1; }
+#btn2 { grid-column: 3; grid-row: 1; }
+#btn3 { grid-column: 5; grid-row: 1; }
+#btn4 { grid-column: 2; grid-row: 2; }
+#btn5 { grid-column: 4; grid-row: 2; }
+  
+/* --- buttons style --- */
+.ring-grid a {
+    all: unset;
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    padding: 16px 12px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    background-color: gray;
+}
+  
+/* Olympics color for each button */
+#btn1 { background-color: #0085C7; }   
+#btn2 { background-color: #000000; }   
+#btn3 { background-color: #DF0024; }   
+#btn4 { background-color: #F4C300; color: #000000; } /* Yello with black text */
+#btn5 { background-color: #009F3D; }   
+  
+/* Hover effect on the button */
+.ring-grid a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0.95;
 }
