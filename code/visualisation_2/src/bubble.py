@@ -8,7 +8,7 @@ import math
 import hover_template
 
 
-def get_plot(my_df, gdp_range, co2_range):
+def get_plot(df, graph_id: int = 1):
     '''
         Generates the bubble plot.
 
@@ -21,35 +21,29 @@ def get_plot(my_df, gdp_range, co2_range):
         size is 6.
 
         Args:
-            my_df: The dataframe to display
-            gdp_range: The range for the x axis
-            co2_range: The range for the y axis
+            df: The dataframe to display
         Returns:
             The generated figure
     '''
     # TODO : Define figure with animation
-
     # To scale markers between the desired max and min sizes (since no min_size param exists in px.scatter)
-    min, max = my_df['Population'].min(), my_df['Population'].max()
-    my_df['marker_size'] = 6 + ((my_df['Population'] - min) / (max - min)) * (30 - 6)
+    min, max = df['Population'].min(), df['Population'].max()
+    df['marker_size'] = 3 + ((df['Population'] - min) / (max - min)) * (200 - 3)
 
     fig = px.scatter(
-        my_df,
-        x="GDP",
-        y="CO2",
-        animation_frame="Year",
+        df,
+        x="PIB_per_Capita",
+        y="nb_medals",
+        animation_frame="Year_Group",
         size="marker_size",
-        color="Continent",
+        size_max=50,
+        color="continent" if graph_id == 1 else "Climate",
         color_discrete_sequence=px.colors.qualitative.Set1,
         log_x=True,
         log_y=True,
-        custom_data=["Country Name", "Population"]
+        custom_data=["Region", "Population", "continent", "Climate"]
     )
-    
-    fig.update_layout(
-        xaxis=dict(range=[math.log(gdp_range[0], 10), math.log(gdp_range[1], 10)]),
-        yaxis=dict(range=[math.log(co2_range[0], 10), math.log(co2_range[1], 10)]),
-    )
+
     return fig
 
 
@@ -74,7 +68,7 @@ def update_animation_hover_template(fig):
     return fig
 
 
-def update_animation_menu(fig):
+def update_animation_menu(fig, graph_id: int = 1):
     '''
         Updates the animation menu to show the current year, and to remove
         the unnecessary 'Stop' button.
@@ -126,8 +120,8 @@ def update_axes_labels(fig):
             The updated figure
     '''
     # TODO : Update labels
-    fig.update_xaxes(title="GDP per Capita ($ USD)")
-    fig.update_yaxes(title="CO2 emissions per capita (metric tonnes)")
+    fig.update_xaxes(title="PIB par Capita ($ USD)")
+    fig.update_yaxes(title="Médailles par jeux olympiques")
     return fig
 
 
@@ -156,5 +150,5 @@ def update_legend(fig):
             The updated figure
     '''
     # TODO : Update legend
-    fig.update_layout(legend_title_text="Legend")
+    fig.update_layout(legend_title_text="Légende")
     return fig
