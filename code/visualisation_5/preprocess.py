@@ -110,12 +110,15 @@ pays_dispo = [("USA", "United States"),
                ("NED", "Netherlands"),
                ("NZL", "New-Zeland"),
                ("NOR", "Norway"),
-               ("SWE", "Sweden"),
                ("CHN", "China"),
                ("IND", "India"),
                ("AUS", "Australia"),
                ("BRA", "Brazil"),
-               ("ESP", "Spain")]
+               ("ESP", "Spain"),
+               ("NOR", "Norway"),
+               ("SWE", "Sweden"),
+               ("FIN", "Finland")
+               ]
 
 pays_dispo = sorted(pays_dispo, key=lambda x: x[1])
 
