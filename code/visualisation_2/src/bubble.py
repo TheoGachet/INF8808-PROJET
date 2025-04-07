@@ -5,7 +5,7 @@
 import plotly.express as px
 import math
 
-import hover_template
+import visualisation_2.src.hover_template as hover_template
 
 
 def get_plot(df, graph_id: int = 1):

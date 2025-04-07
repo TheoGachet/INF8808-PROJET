@@ -10,15 +10,15 @@
     This file contains the source code for TP4.
 '''
 
-import dash
+from dash import callback
 import dash_html_components as html
 import dash_core_components as dcc
 from dash.dependencies import Input, Output
 
 import plotly.graph_objects as go
 
-import preprocess
-import bubble
+import visualisation_2.src.preprocess as preprocess
+import visualisation_2.src.bubble as bubble
 from pathlib import Path
 import os
 import pandas as pd 
@@ -26,9 +26,6 @@ import pandas as pd
 DATA_FOLDER = Path(os.path.abspath(__file__)).parent
 PATH_PROCESSED_NON_SEASONAL_DATA = DATA_FOLDER / "vis_2_processed_data_1.csv"
 PATH_PROCESSED_SEASONAL_DATA = DATA_FOLDER / "vis_2_processed_data_2.csv"
-
-app = dash.Dash(__name__)
-app.title = 'TP4 | INF8808'
 
 # create fig for first graph without seasons
 def generate_fig(df, graph_id: int = 1):
@@ -81,50 +78,61 @@ def update_figure(selected_seasons):
 
     return fig
 
-app.callback(
+callback(
     Output('bubble-graph-2', 'figure'),
-    Input('season-filter', 'value')
+    Input('viz2-season-filter', 'value')
 )(update_figure)
 
-app.layout = html.Div(className='content', children=[
-    html.Header(children=[
-        html.H1('Total Medals / PIB per Capita ($ USD)')
-    ]),
+def get_viz_2_html():
+    return html.Div(className='content', children=[
+        html.Div(children=[
+            html.H1('Total Medals / PIB per Capita ($ USD)', style={'textAlign': 'center'}),
+            html.Div(
+                html.P(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt " \
+                    "ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco " \
+                    "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in " \
+                    "voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat " \
+                    "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                ),
+                className="viz-description"
+            )
+        ]),
 
-    html.Main(className='viz-container', style={'display': 'flex', 'justifyContent': 'center', 'gap': '40px'}, children=[
-        
-        # First graph only
-        dcc.Graph(className='graph', figure=fig1, config=dict(
-            scrollZoom=False,
-            showTips=False,
-            showAxisDragHandles=False,
-            doubleClick=False,
-            displayModeBar=False
-        )),
-
-        # Second graph + checkboxes
-        html.Div(style={'display': 'flex', 'flexDirection': 'column', 'alignItems': 'center'}, children=[
-            # Checkboxes underneath
-            html.Div([
-                dcc.Checklist(
-                    id='season-filter',
-                    options=[
-                        {'label': 'Hiver', 'value': 'Winter'},
-                        {'label': 'Été', 'value': 'Summer'}
-                    ],
-                    value=['Winter', 'Summer'],
-                    labelStyle={'display': 'inline-block', 'margin-right': '15px'},
-                    inputStyle={'margin-right': '6px'}
-                )
-            ], style={'marginBottom': '20px', 'textAlign': 'center'}),
-
-            dcc.Graph(id='bubble-graph-2', className='graph', figure=fig2, config=dict(
+        html.Div(className='viz-container', style={'display': 'flex', 'justifyContent': 'center', 'gap': '40px'}, children=[
+            
+            # First graph only
+            dcc.Graph(className='graph', figure=fig1, config=dict(
                 scrollZoom=False,
                 showTips=False,
                 showAxisDragHandles=False,
                 doubleClick=False,
                 displayModeBar=False
             )),
+
+            # Second graph + checkboxes
+            html.Div(style={'display': 'flex', 'flexDirection': 'column', 'alignItems': 'center'}, children=[
+                # Checkboxes underneath
+                html.Div([
+                    dcc.Checklist(
+                        id='viz2-season-filter',
+                        options=[
+                            {'label': 'Hiver', 'value': 'Winter'},
+                            {'label': 'Été', 'value': 'Summer'}
+                        ],
+                        value=['Winter', 'Summer'],
+                        labelStyle={'display': 'inline-block', 'margin-right': '15px'},
+                        inputStyle={'margin-right': '6px'}
+                    )
+                ], style={'marginBottom': '20px', 'textAlign': 'center'}),
+
+                dcc.Graph(id='bubble-graph-2', className='graph', figure=fig2, config=dict(
+                    scrollZoom=False,
+                    showTips=False,
+                    showAxisDragHandles=False,
+                    doubleClick=False,
+                    displayModeBar=False
+                )),
+            ])
         ])
     ])
-])
