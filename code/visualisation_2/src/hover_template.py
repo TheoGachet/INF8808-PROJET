@@ -18,11 +18,11 @@ def get_bubble_hover_template():
     '''
     # TODO : Generate tooltip
     hover_template = (
-        "<b>Pays : </b> %{customdata[0]}<br>"
-        "<b>Continent : </b> %{customdata[2]}<br>"
-        "<b>Climat : </b> %{customdata[3]}<br>"
-        "<b>Population moyenne : </b> %{customdata[1]:,}<br>"
-        "<b>PIB par capita : </b> %{x:,} $ (USD)<br>"
-        "<b>Médailles par jeux olympiques : </b> %{y:,}<extra></extra>"
+        "<span style='font-family:Inter;'><b>Country: </b> %{customdata[0]}<br>"
+        "<b>Continent: </b> %{customdata[2]}<br>"
+        "<b>Climate: </b> %{customdata[3]}<br>"
+        "<b>Average Population: </b> %{customdata[1]:,}<br>"
+        "<b>GDP per Capita: </b> %{x:,} $ (USD)<br>"
+        "<b>Medals per Olympic Games: </b> %{y:,}</span><extra></extra>"
     )
     return hover_template

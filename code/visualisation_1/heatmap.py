@@ -111,7 +111,7 @@ def create_multiple_heatmaps(data):
                 color="red",
                 symbol="square-open"  # Carré non rempli
             ),
-            name="Pays organisateur"  # Nom dans la légende
+            name="Pays organisateur",  # Nom dans la légende
         )
     )
 
@@ -128,6 +128,8 @@ def create_multiple_heatmaps(data):
 
     # Mettre à jour la mise en page globale
     fig.update_layout(
+        font=dict(family="Inter"),  # Définir la police "Inter"
+        font_size=14,  # Définir la taille du texte à 14
         height=rows * 370,  # Ajuster la hauteur en fonction du nombre de lignes
         width=cols * 370,  # Ajuster la largeur pour bien afficher les légendes
         showlegend=True,  # Activer la légende globale

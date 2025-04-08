@@ -46,7 +46,10 @@ def generate_fig(df, graph_id: int = 1):
     fig = bubble.update_template(fig)
     fig = bubble.update_legend(fig)
 
-    fig.update_layout(height=650, width=650)
+    fig.update_layout(height=650,
+                      width=650,
+                      font=dict(family="Inter"),  # Définir la police "Inter"
+                      font_size=14)  # Définir la taille du texte à 14)
     fig.update_layout(dragmode=False)
 
     return fig
@@ -73,7 +76,10 @@ def update_figure(selected_seasons):
     fig = bubble.update_axes_labels(fig)
     fig = bubble.update_template(fig)
     fig = bubble.update_legend(fig)
-    fig.update_layout(height=600, width=650)
+    fig.update_layout(height=600,
+                      width=650,
+                      font=dict(family="Inter"),  # Définir la police "Inter"
+                      font_size=14)  # Définir la taille du texte à 14))
 
     return fig
 
@@ -94,8 +100,9 @@ def get_viz_2_html():
             ),
             html.H2("Total Medals / PIB per Capita ($ USD)", style={"textAlign": "center", "color":"#0085C7","fontFamily": "Playfair Display"}),
             html.P(
-            "Texte à changer"
-            "Texte à changer",
+                "Behind every Olympic medal lies a complex mix of factors that influence success on the global stage. While athleticism and training are key, a country’s population size, wealth, and even its climate may play an unexpected role in determining who takes home the gold. "
+                "Larger populations might have more athletes to choose from, but do they really win more medals ? Wealthier nations often have better resources for training, but does that translate into Olympic glory ? And how do the climates of countries impact their performance in summer versus winter Games ? "
+                "This visualization explores the relationship between GDP, population, and climate with Olympic performance over time, revealing fascinating trends and geographical insights that go beyond the sports themselves.",
             style={"textAlign": "justify","fontFamily": "Inter"},
             className="viz-description"
             )
@@ -119,8 +126,8 @@ def get_viz_2_html():
                 dcc.Checklist(
                 id='viz2-season-filter',
                 options=[
-                    {'label': 'Hiver', 'value': 'Winter'},
-                    {'label': 'Été', 'value': 'Summer'}
+                    {'label': 'Summer Olympics', 'value': 'Summer'},
+                    {'label': 'Winter Olympics', 'value': 'Winter'}
                 ],
                 value=['Winter', 'Summer'],
                 labelStyle={'display': 'inline-block', 'margin-right': '15px', 'fontFamily': 'Inter'},

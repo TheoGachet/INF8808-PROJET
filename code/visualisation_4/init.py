@@ -158,6 +158,8 @@ def get_output(season, discipline):
         
         fig.update_layout(
             width=TAILLE, height=TAILLE,
+            font=dict(family="Inter"),  # Définir la police "Inter"
+            font_size=14,  # Définir la taille du texte à 14
             margin=dict(l=0, r=0, t=0, b=0),
             plot_bgcolor="white"
         )
@@ -174,8 +176,8 @@ def get_output(season, discipline):
         rows.append(row)
     
     output_components = [
-        html.H2(f"Visualisation pour {season} - Discipline sélectionnée : {discipline}"),
-        html.P("Top 10 pays par score (or = 3 pts / argent = 2 pts / bronze = 1 pt):"),
+        # html.H2(f"Visualisation pour {season} - Discipline sélectionnée : {discipline}"),
+        html.P("Top 10 pays par score (or = 3 pts / argent = 2 pts / bronze = 1 pt)"),
         html.Div(rows)
     ]
     
