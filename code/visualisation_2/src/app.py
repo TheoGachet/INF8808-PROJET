@@ -65,7 +65,6 @@ def update_figure(selected_seasons):
         filtered_df = seasonal_df[seasonal_df['Season'] == selected_seasons[0]]
     
     filtered_df = preprocess.sort_dy_by_yr_climate(filtered_df)
-    print(filtered_df)
 
     # Rebuild the figure with the filtered data
     fig = bubble.get_plot(filtered_df, 2)

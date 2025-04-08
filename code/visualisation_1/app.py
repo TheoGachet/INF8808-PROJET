@@ -23,16 +23,17 @@ def get_viz_1_html():
         # En-tête de l'application
         html.Div([
             html.H1(
-                "Nombre de médailles gagnés par pays selon les éditions",  # Titre principal
+                "Who Rules the Podium ? Medal Count by Country Through the Years",  # Titre principal
                 style={'textAlign': 'center'}  # Centrer le texte
             ),
             html.Div(
                 html.P(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt " \
-                    "ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco " \
-                    "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in " \
-                    "voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat " \
-                    "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    "Every four years, the Olympic Games bring together the best athletes from around the world. But behind the medals and records lies another competition — one between nations, strategy, and sometimes... opportunity. "
+                    "Have certain countries historically dominated the same sports over and over again ? Are powerhouses like the USA, China, or Russia unbeatable in specific disciplines ? And what happens when a country hosts the Olympics — do they influence the list of sports to improve their chances of winning more medals ? "
+                    "Adding new sports, removing old ones, or adjusting event formats can sometimes raise eyebrows. Is it coincidence, or a clever tactic to tip the balance in favor of the host nation ? "
+                    "This visualization explores decades of Olympic history to uncover patterns of dominance, national specialties, and the possible impact of hosting the Games. "
+                    "Let’s see what the data reveals.",
+                    style={'textAlign': 'justify'}
                 ),
                 className="viz-description"
             )
