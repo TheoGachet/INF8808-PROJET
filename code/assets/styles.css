@@ -16,6 +16,14 @@ p.section-title {
     color: #8A8A8A;
 }
 
+#viz1-section, #viz2-section, #viz3-section, #viz4-section, #viz5-section {
+    display: flex;
+    min-height: 100vh;
+    padding: 20px 30px;
+    justify-content: center;
+    align-items: center;
+}
+
 .section-row {
     display: flex;
     height: 100vh;            /* 100% screen height */

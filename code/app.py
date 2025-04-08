@@ -1,6 +1,7 @@
 import dash
 from dash import html
 from visualisation_1.app import get_viz_1_html
+from visualisation_2.src.app import get_viz_2_html
 from visualisation_3.app import get_viz_3_html
 from visualisation_4.app import get_viz_4_html
 from visualisation_5.app import get_viz_5_html
@@ -63,6 +64,10 @@ app.layout = html.Div([
         html.Div(
             [get_viz_1_html()],
             id="viz1-section"
+        ),
+        html.Div(
+            [get_viz_2_html()],
+            id="viz2-section"
         ),
         html.Div(
             [get_viz_3_html()],

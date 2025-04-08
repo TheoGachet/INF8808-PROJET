@@ -18,7 +18,7 @@ pays_disponibles = preprocess.pays_dispo
 def get_viz_5_html():
     return html.Div([
         html.Div([
-            html.H1("Visualisation 5 (TODO: changer ce titre)", style={"textAlign": "center"}),
+            html.H1("Vizualisation 5: Points scored by the countries with and withiout the multi-medalist athletes", style={"textAlign": "center"}),
             html.Div(
                 html.P(
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt " \
@@ -34,7 +34,7 @@ def get_viz_5_html():
             dcc.Dropdown(
                 id='dropdown-pays',
                 options=[{'label': p, 'value': s} for (s, p) in pays_disponibles],
-                value=pays,  # Valeur par défaut
+                value=pays,
                 placeholder="Select a country",
                 style={"width": "200px", 'margin': '20px 20px', 'textAlign': 'center'},
             ),
