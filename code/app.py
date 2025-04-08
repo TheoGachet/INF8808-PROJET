@@ -25,13 +25,13 @@ app.layout = html.Div([
                 ),
                 html.Div([
                     html.A(
-                        "Spécialisation par sport",
-                        href="#viz1-section",
+                        "Conditions du pays",
+                        href="#viz2-section",
                         id="btn1"
                     ),
                     html.A(
-                        "Conditions du pays",
-                        href="#viz2-section",
+                        "Spécialisation par sport",
+                        href="#viz1-section",
                         id="btn2"
                     ),
                     html.A(
@@ -62,12 +62,12 @@ app.layout = html.Div([
             className="section-row"
         ),
         html.Div(
-            [get_viz_1_html()],
-            id="viz1-section"
-        ),
-        html.Div(
             [get_viz_2_html()],
             id="viz2-section"
+        ),
+        html.Div(
+            [get_viz_1_html()],
+            id="viz1-section"
         ),
         html.Div(
             [get_viz_3_html()],
