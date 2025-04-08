@@ -80,6 +80,9 @@ def update_animation_menu(fig, graph_id: int = 1):
     '''
     # TODO : Update animation menu
 
+    # Retirer le menu précédent:
+    fig.layout.pop("updatemenus", None)
+
     fig.update_layout(
         updatemenus=[
             {
@@ -89,16 +92,15 @@ def update_animation_menu(fig, graph_id: int = 1):
                         "label": "Animate",
                         "method": "animate"
                     },
-                    # The next dictionnary here is to make the second button empty. That's the best that can be done in Plotly
-                    # as the stop button is automatically if no stop button is defined
-                    {
-                        "args": [None, {'visible': False}],
-                        "label": "",
-                        "method": "skip"
-                    },
                 ],
+                "direction": "left",
+                "pad": {"r": 10, "t": 87},
+                "showactive": False,
                 "type": "buttons",
-                "showactive": False
+                "x": 0.09,
+                "xanchor": "right",
+                "y": 0.03,
+                "yanchor": "top"
             }
         ],
         sliders=[{

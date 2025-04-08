@@ -25,8 +25,8 @@ def get_viz_1_html():
             html.H1(
                 "Who Rules the Podium ? Medal Count by Country Through the Years",  # Titre principal
                 style={'textAlign': 'center', # Centrer le texte
-                       'fontFamily': 'Helvetica, sans-serif',
-                       'color': '#0085C7'}
+                       'fontFamily': 'Helvetica, sans-serif'
+                       }
             ),
             html.Div(
                 html.P(
