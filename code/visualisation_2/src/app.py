@@ -99,10 +99,13 @@ def get_viz_2_html():
             className="viz-description"
             ),
             html.H2("Total Medals / PIB per Capita ($ USD)", style={"textAlign": "center", "color":"#0085C7","fontFamily": "Playfair Display"}),
-            html.P(
-                "Behind every Olympic medal lies a complex mix of factors that influence success on the global stage. While athleticism and training are key, a country’s population size, wealth, and even its climate may play an unexpected role in determining who takes home the gold. "
-                "Larger populations might have more athletes to choose from, but do they really win more medals ? Wealthier nations often have better resources for training, but does that translate into Olympic glory ? And how do the climates of countries impact their performance in summer versus winter Games ? "
-                "This visualization explores the relationship between GDP, population, and climate with Olympic performance over time, revealing fascinating trends and geographical insights that go beyond the sports themselves.",
+            html.P([
+                "Behind every Olympic medal lies a complex mix of factors that influence success on the global stage. While athleticism and training are key, a country’s population size, wealth, and even its climate may play an unexpected role in determining who takes home the gold. ",
+                html.Br(), html.Br(),
+                "Larger populations might have more athletes to choose from, but do they really win more medals ? Wealthier nations often have better resources for training, but does that translate into Olympic glory ? And how do the climates of countries impact their performance in summer versus winter Games ? ",
+                html.Br(), html.Br(),
+                "This visualization explores the relationship between GDP, population, and climate with Olympic performance over time, revealing fascinating trends and geographical insights that go beyond the sports themselves."
+                ],
             style={"textAlign": "justify","fontFamily": "Inter"},
             className="viz-description"
             )

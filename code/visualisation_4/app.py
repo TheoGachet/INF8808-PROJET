@@ -40,7 +40,8 @@ def get_viz_4_html():
             html.Label("Sélectionner le type de Jeux:", style={"fontFamily": "Inter"}),
             dcc.RadioItems(
                 id='season-radio',
-                options=[{'label': s, 'value': s} for s in ["Summer", "Winter"]],
+                options=[{'label': 'Summer Olympics', 'value': 'Summer'},
+                        {'label': 'Winter Olympics', 'value': 'Winter'}],
                 value='Summer',
                 labelStyle={'display': 'inline-block', 'margin-right': '10px', "fontFamily": "Inter"},
             ),

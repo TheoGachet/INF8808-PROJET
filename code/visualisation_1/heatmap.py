@@ -13,7 +13,7 @@ country_codes = pd.read_csv(path, sep=';')  # Lecture du fichier CSV avec les co
 def create_multiple_heatmaps(data):
     # Obtenir la liste des sports à partir des clés du dictionnaire `data`
     sports = list(data.keys())
-    num_sports = len(sports)  # Nombre total de sports
+    # num_sports = len(sports)  # Nombre total de sports
 
     # Définir le nombre de colonnes et de lignes pour les sous-graphiques
     cols = 4  # Nombre de colonnes (modifiable)
@@ -23,7 +23,7 @@ def create_multiple_heatmaps(data):
     fig = make_subplots(
         rows=rows,
         cols=cols,
-        subplot_titles=sports,  # Ajouter les titres des sous-graphiques
+        subplot_titles=[f"<b>{sport}</b>" for sport in sports],  # Ajouter les titres des sous-graphiques en gras
         horizontal_spacing=0.15,  # Espacement horizontal entre les sous-graphiques
         vertical_spacing=0.10,  # Espacement vertical entre les sous-graphiques
     )
