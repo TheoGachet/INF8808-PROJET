@@ -152,5 +152,5 @@ def update_legend(fig):
             The updated figure
     '''
     # TODO : Update legend
-    fig.update_layout(legend_title_text="Légende")
+    fig.update_layout(legend_title_text="Legende")
     return fig

@@ -29,27 +29,27 @@ app.layout = html.Div([
                 ], className="section-title"),
                 html.Div([
                     html.A(
-                        "Conditions du pays",
+                        "Country Conditions",
                         href="#viz2-section",
                         id="btn1"
                     ),
                     html.A(
-                        "Spécialisation par sport",
+                        "Sport Specialization",
                         href="#viz1-section",
                         id="btn2"
                     ),
                     html.A(
-                        "Avantage à domicile",
+                        "Home Advantage",
                         href="#viz3-section",
                         id="btn3"
                     ),
                     html.A(
-                        "Héros nationaux",
+                        "National Heroes",
                         href="#viz4-section",
                         id="btn4"
                     ),
                     html.A(
-                        "Impact individuel",
+                        "Individual Impact",
                         href="#viz5-section",
                         id="btn5"
                     ),

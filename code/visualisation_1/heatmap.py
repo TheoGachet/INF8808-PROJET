@@ -111,7 +111,7 @@ def create_multiple_heatmaps(data):
                 color="red",
                 symbol="square-open"  # Carré non rempli
             ),
-            name="Pays organisateur",  # Nom dans la légende
+            name="Host Country",  # Name in the legend
         )
     )
 
