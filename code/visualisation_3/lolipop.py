@@ -165,6 +165,7 @@ def create_lollipop_figure(df, season, top_margin=240):
     ]
 
     fig.update_layout(
+        font=dict(family="Inter"),
         height=950,
         margin=dict(t=top_margin),
         annotations=title_annotations + [
@@ -200,3 +201,4 @@ def create_lollipop_figure(df, season, top_margin=240):
     )
 
     return fig
+    

@@ -85,18 +85,18 @@ callback(
 def get_viz_2_html():
     return html.Div(className='content', children=[
         html.Div(children=[
-            html.H1('🥇 1. Is Olympic Success Reserved for Superpowers?', style={'textAlign': 'center', 'marginBottom': '20px'}),
+            html.H1('🥇 1. Is Olympic Success Reserved for Superpowers?', style={'textAlign': 'center', 'marginBottom': '20px', "fontFamily": "Playfair Display"}),
             html.P(
             "Are the same nations always at the top of the podium — and why? "
             "From the Cold War era to modern-day dominance, we explore how wealth, population, and historical presence shape Olympic power hierarchies — and whether the gap is growing or narrowing.",
-            style={"textAlign": "justify", "backgroundColor": "#fdfdfd",'marginBottom': '40px'},
+            style={"textAlign": "justify", "backgroundColor": "#fdfdfd",'marginBottom': '40px',"fontFamily": "Inter"},
             className="viz-description"
             ),
-            html.H2("Total Medals / PIB per Capita ($ USD)", style={"textAlign": "center", "color":"#0085C7"}),
+            html.H2("Total Medals / PIB per Capita ($ USD)", style={"textAlign": "center", "color":"#0085C7","fontFamily": "Playfair Display"}),
             html.P(
-            "Are the same nations always at the top of the podium — and why? "
-            "From the Cold War era to modern-day dominance, we explore how wealth, population, and historical presence shape Olympic power hierarchies — and whether the gap is growing or narrowing.",
-            style={"textAlign": "justify"},
+            "Texte à changer"
+            "Texte à changer",
+            style={"textAlign": "justify","fontFamily": "Inter"},
             className="viz-description"
             )
         ]),
@@ -123,7 +123,7 @@ def get_viz_2_html():
                     {'label': 'Été', 'value': 'Summer'}
                 ],
                 value=['Winter', 'Summer'],
-                labelStyle={'display': 'inline-block', 'margin-right': '15px'},
+                labelStyle={'display': 'inline-block', 'margin-right': '15px', 'fontFamily': 'Inter'},
                 inputStyle={'margin-right': '6px'}
                 )
             ], style={'marginBottom': '20px', 'textAlign': 'center'}),

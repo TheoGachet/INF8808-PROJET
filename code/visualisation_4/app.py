@@ -6,18 +6,18 @@ from visualisation_4.preprocess import load_csv  # utilisé pour charger le CSV 
 def get_viz_4_html():
     return html.Div([
         html.Div([
-            html.H1("3. Can Individual Talent Elevate an Entire Nation?", style={'textAlign': 'center', 'marginBottom': '20px'}),
+            html.H1("🌟3. Can Individual Talent Elevate an Entire Nation?", style={'textAlign': 'center', 'marginBottom': '20px',"fontFamily": "Playfair Display"}),
             html.P([
                 "Does being the host country boost your performance — or is it just a myth?",
                 html.Br(),
                 "We compare how countries perform at home versus abroad to reveal if hosting gives athletes a psychological or logistical edge. The results may surprise you.",
-            ], style={"textAlign": "justify", "backgroundColor": "#fdfdfd", 'marginBottom': '40px'},
+            ], style={"textAlign": "justify", "backgroundColor": "#fdfdfd", 'marginBottom': '40px',"fontFamily": "Inter"},
                 className="viz-description"
             )
-        ]),  # ✅ Parenthèse fermante ajoutée ici pour la première Div
+        ]), 
 
         html.Div([
-            html.H2("Where are Olympic Champions from ? A Global Map of Sport Legends", style={"textAlign": "center",'color': '#F4C300', 'marginBottom': '40px'}),
+            html.H2("Where are Olympic Champions from ? A Global Map of Sport Legends", style={"textAlign": "center",'color': '#F4C300', 'marginBottom': '40px',"fontFamily": "Playfair Display"}),
             html.Div(
                 html.P([
                     "Behind every Olympic champion, there’s not just talent — there’s also a country, a culture, and sometimes, a system built to create greatness.",
@@ -29,7 +29,7 @@ def get_viz_4_html():
                     "Talent might be universal… but is Olympic glory?",
                     ], style={
                         'textAlign': 'justify',
-                        'fontFamily': 'Helvetica, sans-serif'
+                        "fontFamily": "Inter"
                     }) ,
                 className="viz-description"
                 
@@ -37,23 +37,24 @@ def get_viz_4_html():
         ]),
 
         html.Div([
-            html.Label("Sélectionner le type de Jeux:"),
+            html.Label("Sélectionner le type de Jeux:", style={"fontFamily": "Inter"}),
             dcc.RadioItems(
                 id='season-radio',
                 options=[{'label': s, 'value': s} for s in ["Summer", "Winter"]],
                 value='Summer',
-                labelStyle={'display': 'inline-block', 'margin-right': '10px'}
+                labelStyle={'display': 'inline-block', 'margin-right': '10px', "fontFamily": "Inter"},
             ),
         ], style={'margin': '20px 20px'}),
 
         html.Div([
-            html.Label("Sélectionner une discipline:"),
+            html.Label("Sélectionner une discipline:", style={"fontFamily": "Inter"}),  # Ajout de la fontFamily ici
             dcc.Dropdown(
                 id='discipline-dropdown',
                 options=[],  # options mises à jour par le callback
-                value=None
+                value=None,
+                style={"fontFamily": "Inter"}  # Ajout de la fontFamily ici
             ),
-        ], style={'width': '50%', 'margin-bottom': '20px'}),
+        ], style={'width': '20%', 'margin-bottom': '20px'}),
 
         html.Hr(),
         html.Div(id='output-text', style={'whiteSpace': 'pre-line', 'fontFamily': 'monospace'})

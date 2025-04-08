@@ -25,7 +25,7 @@ def get_viz_1_html():
             html.H2(
                 "Who Rules the Podium ? Medal Count by Country Through the Years",  # Titre principal
                 style={'textAlign': 'center', # Centrer le texte
-                       'fontFamily': 'Helvetica, sans-serif',
+                       'fontFamily': 'Playfair Display',
                        'color': '#000000'}
             ),
             html.Div(
@@ -37,7 +37,7 @@ def get_viz_1_html():
                     "Let’s see what the data reveals.",
                     style={
                         'textAlign': 'justify',  # Justifier le texte
-                        'fontFamily': 'Helvetica, sans-serif',
+                        'fontFamily': 'Inter',
                     }
                 ),
                 className="viz-description"
@@ -53,6 +53,7 @@ def get_viz_1_html():
                     {'label': 'Winter Olympics', 'value': 'Winter'}   # Option pour les Jeux d'hiver
                 ],
                 value='Summer',  # Valeur par défaut
+                labelStyle={'display': 'inline-block', 'margin': '0 10px',"fontFamily": "Inter"},
                 style={
                     'textAlign': 'center',  # Centrer le composant
                     'margin': '10px 0',  # Marges
