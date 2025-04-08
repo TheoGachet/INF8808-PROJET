@@ -78,10 +78,14 @@ def pays_points(data_with, data_without):
     Returns:
         -`df_points`: DataFrame
     """
-    df_points_with = data_with.groupby(['NOC','Year'])[['Points', "Medals"]].sum().reset_index()
+    # Adjust for team events by dropping duplicates based on team identifier
+    data_with_unique = data_with.drop_duplicates(subset=["Event", "Team", "Year", "Medal"])
+    data_without_unique = data_without.drop_duplicates(subset=["Event", "Team", "Year", "Medal"])
+
+    df_points_with = data_with_unique.groupby(['NOC','Year'])[['Points', "Medals"]].sum().reset_index()
     df_points_with.columns = ['Country','Year','Points with', "Medals with"]
 
-    df_points_without = data_without.groupby(['NOC','Year'])[['Points', "Medals"]].sum().reset_index()
+    df_points_without = data_without_unique.groupby(['NOC','Year'])[['Points', "Medals"]].sum().reset_index()
     df_points_without.columns = ['Country','Year','Points without', "Medals without"]
     
     df_merged = pd.merge(df_points_with, df_points_without, on=['Country','Year'], how='outer')
@@ -99,6 +103,8 @@ def get_usefull_dataframe(df_final, pays, years):
     })
     return df
 
+
+
 # Choix arbitraire + Mapping:
 pays_dispo = [("USA", "United States"),
                ("CAN", "Canada"),
@@ -109,7 +115,6 @@ pays_dispo = [("USA", "United States"),
                ("JPN", "Japan"),
                ("NED", "Netherlands"),
                ("NZL", "New-Zeland"),
-               ("NOR", "Norway"),
                ("CHN", "China"),
                ("IND", "India"),
                ("AUS", "Australia"),

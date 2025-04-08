@@ -18,14 +18,17 @@ pays_disponibles = preprocess.pays_dispo
 def get_viz_5_html():
     return html.Div([
         html.Div([
-            html.H1("Vizualisation 5: Points scored by the countries with and withiout the multi-medalist athletes", style={"textAlign": "center"}),
+            html.H1("Tracking Olympic Glory: Points Earned by Country Over the Years", style={"textAlign": "center", "color": "#009F3D"}),
             html.Div(
-                html.P(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt " \
-                    "ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco " \
-                    "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in " \
-                    "voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat " \
-                    "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                html.P(["This slopechart illustrates the evolution of Olympic performance by country across different editions of the Games, using a points-based system rather than the traditional medal count." \
+                       " Each country's score is calculated by assigning a fixed number of points to each medal type (e.g., 3 for gold, 2 for silver, 1 for bronze), allowing for a more nuanced comparison of overall performance." \
+                        " By focusing on total points instead of just medal total, this visualization highlights countries whose athletic excellence may be underappreciated when only gold medals are considered.",
+                        html.Br(), html.Br(),
+                        "This approach aims to better reflect the contributions of multi-medal-winning athletes, whose repeated successes can significantly influence their country's standing." \
+                         " It also allows us to observe trends over time—revealing periods of dominance, decline, or resurgence in Olympic history.", 
+                         html.Br(), html.Br(),
+                         "Ultimately, this visualization invites viewers to reconsider how we measure Olympic success and to appreciate the collective and individual efforts that shape a nation’s Olympic legacy."
+                ], style={"textAlign": "justify"}
                 ),
                 className="viz-description"
             ),
