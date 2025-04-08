@@ -22,11 +22,11 @@ def get_viz_1_html():
     return html.Div([
         # En-tête de l'application
         html.Div([
-            html.H1(
+            html.H2(
                 "Who Rules the Podium ? Medal Count by Country Through the Years",  # Titre principal
                 style={'textAlign': 'center', # Centrer le texte
-                       'fontFamily': 'Helvetica, sans-serif'
-                       }
+                       'fontFamily': 'Helvetica, sans-serif',
+                       'color': '#000000'}
             ),
             html.Div(
                 html.P(

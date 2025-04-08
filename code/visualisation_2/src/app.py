@@ -85,53 +85,56 @@ callback(
 def get_viz_2_html():
     return html.Div(className='content', children=[
         html.Div(children=[
-            html.H1('Total Medals / PIB per Capita ($ USD)', style={'textAlign': 'center'}),
-            html.Div(
-                html.P(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt " \
-                    "ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco " \
-                    "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in " \
-                    "voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat " \
-                    "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                ),
-                className="viz-description"
+            html.H1('🥇 1. Is Olympic Success Reserved for Superpowers?', style={'textAlign': 'center', 'marginBottom': '20px'}),
+            html.P(
+            "Are the same nations always at the top of the podium — and why? "
+            "From the Cold War era to modern-day dominance, we explore how wealth, population, and historical presence shape Olympic power hierarchies — and whether the gap is growing or narrowing.",
+            style={"textAlign": "justify", "backgroundColor": "#fdfdfd",'marginBottom': '40px'},
+            className="viz-description"
+            ),
+            html.H2("Total Medals / PIB per Capita ($ USD)", style={"textAlign": "center", "color":"#0085C7"}),
+            html.P(
+            "Are the same nations always at the top of the podium — and why? "
+            "From the Cold War era to modern-day dominance, we explore how wealth, population, and historical presence shape Olympic power hierarchies — and whether the gap is growing or narrowing.",
+            style={"textAlign": "justify"},
+            className="viz-description"
             )
         ]),
 
-        html.Div(className='viz-container', style={'display': 'flex', 'justifyContent': 'center', 'gap': '40px'}, children=[
+        html.Div(className='viz-container', style={'display': 'flex', 'justifyContent': 'center', 'gap': '40px', 'backgroundColor': 'white'}, children=[
             
             # First graph only
             dcc.Graph(className='graph', figure=fig1, config=dict(
+            scrollZoom=False,
+            showTips=False,
+            showAxisDragHandles=False,
+            doubleClick=False,
+            displayModeBar=False
+            )),
+
+            # Second graph + checkboxes
+            html.Div(style={'display': 'flex', 'flexDirection': 'column', 'alignItems': 'center'}, children=[
+            # Checkboxes underneath
+            html.Div([
+                dcc.Checklist(
+                id='viz2-season-filter',
+                options=[
+                    {'label': 'Hiver', 'value': 'Winter'},
+                    {'label': 'Été', 'value': 'Summer'}
+                ],
+                value=['Winter', 'Summer'],
+                labelStyle={'display': 'inline-block', 'margin-right': '15px'},
+                inputStyle={'margin-right': '6px'}
+                )
+            ], style={'marginBottom': '20px', 'textAlign': 'center'}),
+
+            dcc.Graph(id='bubble-graph-2', className='graph', figure=fig2, config=dict(
                 scrollZoom=False,
                 showTips=False,
                 showAxisDragHandles=False,
                 doubleClick=False,
                 displayModeBar=False
             )),
-
-            # Second graph + checkboxes
-            html.Div(style={'display': 'flex', 'flexDirection': 'column', 'alignItems': 'center'}, children=[
-                # Checkboxes underneath
-                html.Div([
-                    dcc.Checklist(
-                        id='viz2-season-filter',
-                        options=[
-                            {'label': 'Hiver', 'value': 'Winter'},
-                            {'label': 'Été', 'value': 'Summer'}
-                        ],
-                        value=['Winter', 'Summer'],
-                        labelStyle={'display': 'inline-block', 'margin-right': '15px'},
-                        inputStyle={'margin-right': '6px'}
-                    )
-                ], style={'marginBottom': '20px', 'textAlign': 'center'}),
-
-                dcc.Graph(id='bubble-graph-2', className='graph', figure=fig2, config=dict(
-                    scrollZoom=False,
-                    showTips=False,
-                    showAxisDragHandles=False,
-                    doubleClick=False,
-                    displayModeBar=False
-                )),
             ])
         ])
-    ])
+        ])

@@ -5,17 +5,37 @@ from visualisation_4.preprocess import load_csv  # utilisé pour charger le CSV 
 
 def get_viz_4_html():
     return html.Div([
-        html.H1("Visualisation 4 - Athlètes par Pays"),
-        html.Div(
-                html.P(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt " \
-                    "ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco " \
-                    "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in " \
-                    "voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat " \
-                    "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                ),
+        html.Div([
+            html.H1("3. Can Individual Talent Elevate an Entire Nation?", style={'textAlign': 'center', 'marginBottom': '20px'}),
+            html.P([
+                "Does being the host country boost your performance — or is it just a myth?",
+                html.Br(),
+                "We compare how countries perform at home versus abroad to reveal if hosting gives athletes a psychological or logistical edge. The results may surprise you.",
+            ], style={"textAlign": "justify", "backgroundColor": "#fdfdfd", 'marginBottom': '40px'},
                 className="viz-description"
-        ),
+            )
+        ]),  # ✅ Parenthèse fermante ajoutée ici pour la première Div
+
+        html.Div([
+            html.H2("Where are Olympic Champions from ? A Global Map of Sport Legends", style={"textAlign": "center",'color': '#F4C300', 'marginBottom': '40px'}),
+            html.Div(
+                html.P([
+                    "Behind every Olympic champion, there’s not just talent — there’s also a country, a culture, and sometimes, a system built to create greatness.",
+                    html.Br(),html.Br(),
+                    "Some nations seem to have an extraordinary ability to produce legendary athletes — those rare competitors who collect medal after medal and leave a lasting mark on Olympic history. But are these sporting icons just isolated cases of individual brilliance? Or do certain countries consistently shape and nurture these exceptional talents?",
+                    html.Br(),html.Br(),
+                    "This visualization dives into the origins of the most decorated Olympians — athletes who have won more than 5 medals in their career — to uncover which countries truly dominate when it comes to producing greatness.",
+                    html.Br(),html.Br(),
+                    "Talent might be universal… but is Olympic glory?",
+                    ], style={
+                        'textAlign': 'justify',
+                        'fontFamily': 'Helvetica, sans-serif'
+                    }) ,
+                className="viz-description"
+                
+            )
+        ]),
+
         html.Div([
             html.Label("Sélectionner le type de Jeux:"),
             dcc.RadioItems(
@@ -25,7 +45,7 @@ def get_viz_4_html():
                 labelStyle={'display': 'inline-block', 'margin-right': '10px'}
             ),
         ], style={'margin': '20px 20px'}),
-        
+
         html.Div([
             html.Label("Sélectionner une discipline:"),
             dcc.Dropdown(
@@ -34,11 +54,11 @@ def get_viz_4_html():
                 value=None
             ),
         ], style={'width': '50%', 'margin-bottom': '20px'}),
-        
+
         html.Hr(),
         html.Div(id='output-text', style={'whiteSpace': 'pre-line', 'fontFamily': 'monospace'})
-    ],
-    className="centered")
+    ], className="centered")
+
 
 # Callback pour mettre à jour la liste des disciplines en fonction de la saison sélectionnée.
 @callback(

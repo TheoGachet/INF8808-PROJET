@@ -14,15 +14,19 @@ app.layout = html.Div([
         html.Div([
             html.Div([
                 html.H1(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                    "What Makes a Nation Shine at the Olympics?",
                     className="section-title"
                 ),
-                html.P(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " \
-                    "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " \
-                    "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                    className="section-title"
-                ),
+                html.P([
+                    html.Br(),
+                    "Every four years, the world turns its eyes to the Olympic Games.",
+                    html.Br(),
+                    "But behind the medals and the flags lies a deeper question:",
+                    html.Br(),
+                    html.Span("What really drives a country’s success on the world’s biggest stage?", style={"fontWeight": "bold"}),
+                    html.Br(), html.Br(),
+                    "Through this data-driven story, we explore three key dynamics that have shaped Olympic performance over the decades.",
+                ], className="section-title"),
                 html.Div([
                     html.A(
                         "Conditions du pays",

@@ -18,7 +18,7 @@ pays_disponibles = preprocess.pays_dispo
 def get_viz_5_html():
     return html.Div([
         html.Div([
-            html.H1("Tracking Olympic Glory: Points Earned by Country Over the Years", style={"textAlign": "center", "color": "#009F3D"}),
+            html.H2("Tracking Olympic Glory: Points Earned by Country Over the Years", style={"textAlign": "center", "color": "#009F3D"}),
             html.Div(
                 html.P(["This slopechart illustrates the evolution of Olympic performance by country across different editions of the Games, using a points-based system rather than the traditional medal count." \
                        " Each country's score is calculated by assigning a fixed number of points to each medal type (e.g., 3 for gold, 2 for silver, 1 for bronze), allowing for a more nuanced comparison of overall performance." \
