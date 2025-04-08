@@ -24,7 +24,9 @@ def get_viz_1_html():
         html.Div([
             html.H1(
                 "Who Rules the Podium ? Medal Count by Country Through the Years",  # Titre principal
-                style={'textAlign': 'center'}  # Centrer le texte
+                style={'textAlign': 'center', # Centrer le texte
+                       'fontFamily': 'Helvetica, sans-serif',
+                       'color': '#0085C7'}
             ),
             html.Div(
                 html.P(
@@ -33,7 +35,10 @@ def get_viz_1_html():
                     "Adding new sports, removing old ones, or adjusting event formats can sometimes raise eyebrows. Is it coincidence, or a clever tactic to tip the balance in favor of the host nation ? "
                     "This visualization explores decades of Olympic history to uncover patterns of dominance, national specialties, and the possible impact of hosting the Games. "
                     "Let’s see what the data reveals.",
-                    style={'textAlign': 'justify'}
+                    style={
+                        'textAlign': 'justify',  # Justifier le texte
+                        'fontFamily': 'Helvetica, sans-serif',
+                    }
                 ),
                 className="viz-description"
             )

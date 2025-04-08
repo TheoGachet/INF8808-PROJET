@@ -99,6 +99,9 @@ def convert_data(season):
         # Filtrer les données pour un sport spécifique
         sport_data = filtered_data[filtered_data['Sport'] == sport]
         if not sport_data.empty:
+            # Trier les NOC par ordre alphabétique
+            sport_data = sport_data.sort_values(by='NOC')
+
             # Grouper par NOC (pays) et année, puis compter les médailles
             medals_by_country_year = sport_data.groupby(['NOC', 'Year'])['Medal'].count().unstack(fill_value=0)
             
