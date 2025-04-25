@@ -167,6 +167,7 @@ def create_lollipop_figure(df, season, top_margin=240):
     fig.update_layout(
         font=dict(family="Inter"),
         height=950,
+        font_size=14,  # Définir la taille du texte à 14)
         margin=dict(t=top_margin),
         annotations=title_annotations + [
             dict(

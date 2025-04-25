@@ -41,6 +41,8 @@ def get_plot(df, graph_id: int = 1):
         color_discrete_sequence=px.colors.qualitative.Set1,
         log_x=True,
         log_y=True,
+        range_x=[100, 130000],
+        range_y=[0.5, 800],
         custom_data=["Region", "Population", "continent", "Climate"]
     )
 
@@ -152,5 +154,5 @@ def update_legend(fig):
             The updated figure
     '''
     # TODO : Update legend
-    fig.update_layout(legend_title_text="Légende")
+    fig.update_layout(legend_title_text="Legende")
     return fig
