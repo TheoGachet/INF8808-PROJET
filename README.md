@@ -1,7 +1,3 @@
-Bien sûr ! Voici un **README.md** complet prêt à être collé dans ton projet :
-
----
-
 # INF8808 - Projet de session
 
 ## Description
@@ -18,7 +14,6 @@ Le projet est organisé en plusieurs dossiers :
 - **`docs/`** : Regroupe le plan du projet, des exemples fournis par le cours, ainsi que des documents d'inspiration pour la réalisation des visualisations.
 - **`project/`** : Cœur du projet contenant l'ensemble du code source.
   - **`visualisation_1/`** à **`visualisation_5/`** : Chaque sous-dossier correspond à une visualisation indépendante, avec son propre prétraitement, ses propres graphiques et ses propres templates Dash.
-  - **`visualisation_4/integration/`** : Intègre plusieurs visualisations dans une application Dash commune, permettant de naviguer entre elles dans une seule interface.
 - **`assets/`** : Contient les ressources statiques partagées, notamment les fichiers CSS (`styles.css`) et les images (`home_image.png`).
 - **Fichiers racine** :
   - **`app.py`** et **`server.py`** : Point d'entrée principal pour lancer l'application globale.
@@ -47,7 +42,7 @@ Pour exécuter l'application en local :
    python app.py
    ```
 
-L'application sera disponible sur `https://olympic-games-team16-ce8602bed91e.herokuapp.com/#viz4-section` dans votre navigateur.
+L'application est également disponible sur `https://olympic-games-team16-ce8602bed91e.herokuapp.com/#viz4-section` dans votre navigateur.
 
 ## Technologies utilisées
 
